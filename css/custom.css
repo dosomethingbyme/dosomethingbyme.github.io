@@ -1,0 +1,10 @@
+body {
+  font-family: "Noto Serif SC", "Helvetica Neue", Arial, sans-serif;
+}
+section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+footer {
+  border-top: 1px solid #dee2e6;
+}
