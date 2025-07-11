@@ -8,15 +8,16 @@
         <meta name="keywords" content="杨烨,yangye,学术简历,研究,计算机" />
         <title>杨烨 - 学术简历</title>
         <script>
-            const lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-            if (lang === 'en-gb') {
-                window.location.href = 'index-en.html';
+            const lang = (navigator.language || navigator.userLanguage || "").toLowerCase();
+            if (!lang.startsWith("zh")) {
+                window.location.href = "index-en.html";
             }
         </script>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -54,7 +55,7 @@
                         www.yangye.com·
                         <a href="mailto:imissyou5201314@outlook.com">imissyou5201314@outlook.com</a>
                     </div>
-                    <p class="lead mb-5">专注于计算机科学与数据分析的研究生</p>
+                    <p class="lead mb-5">软件工程硕士研究生，研究方向为跨境贸易知识图谱</p>
                     <div class="social-icons">
                         <a class="social-icon" href="//yangye.com" target="_blank"><i class="fas fa-blog"></i></a>
                         <a class="social-icon" href="//github.com/yangye" target="_blank"><i class="fab fa-github"></i></a>
