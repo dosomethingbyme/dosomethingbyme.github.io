@@ -11,7 +11,13 @@
           transform: translate3d(0, 0 , 0);
 
   @include clearfix();
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
+  padding: 1.5em;
+  background: $panel-background;
+  border: 1px solid $panel-border;
+  border-radius: 1.5rem;
+  box-shadow: $panel-shadow;
+  backdrop-filter: blur(16px);
 
   @include breakpoint($large) {
     @include span(2 of 12);
@@ -46,6 +52,9 @@
 
   img {
     width: 100%;
+    border-radius: 50%;
+    border: 1px solid rgba(100, 244, 255, 0.4);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
   }
 }
 
@@ -95,11 +104,8 @@
     max-width: 175px;
     min-width: 75px;
     border-radius: 50%;
-
-    @include breakpoint($large) {
-      padding: 5px;
-      border: 1px solid $border-color;
-    }
+    padding: 6px;
+    background: rgba(255, 255, 255, 0.02);
   }
 }
 
@@ -182,11 +188,11 @@
   margin-top: 15px;
   padding: 10px;
   list-style-type: none;
-  border: 1px solid $border-color;
-  border-radius: $border-radius;
-  background: #fff;
+  border: 1px solid $panel-border;
+  border-radius: 1rem;
+  background: rgba(3, 9, 24, 0.95);
   z-index: -1;
-  box-shadow: 0 0 10px rgba(#000, 0.25);
+  box-shadow: 0 20px 45px rgba(#000, 0.35);
   cursor: default;
 
   @include breakpoint($large) {
@@ -208,7 +214,7 @@
     width: 0;
     border-style: solid;
     border-width: 0 10px 10px;
-    border-color: $border-color transparent;
+    border-color: $panel-border transparent;
     z-index: 0;
 
     @include breakpoint($large) {
@@ -225,7 +231,7 @@
     width: 0;
     border-style: solid;
     border-width: 0 10px 10px;
-    border-color: #fff transparent;
+    border-color: rgba(3, 9, 24, 0.95) transparent;
     z-index: 1;
 
     @include breakpoint($large) {
@@ -243,7 +249,7 @@
     padding-right: 5px;
     padding-top: 2px;
     padding-bottom: 2px;
-    color: inherit;
+    color: rgba(255, 255, 255, 0.8);
     font-size: $type-size-5;
     text-decoration: none;
 
