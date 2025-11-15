@@ -8,7 +8,7 @@
 # Site Settings
 title                    : "杨烨"
 description              : "LLM，强化学习，综合能源系统"
-repository               : "cuntoushifu/cuntoushifu.github.io"
+repository               : "dosomethingbyme/dosomethingbyme.github.io"
 google_scholar_stats_use_cdn : false
 
 # google analytics
@@ -37,7 +37,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "cuntoushifu"
+  github           : "dosomethingbyme"
   google_plus      :
   keybase          :
   instagram        :
