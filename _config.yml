@@ -10,6 +10,8 @@ title                    : "杨烨"
 description              : "LLM，强化学习，综合能源系统"
 repository               : "dosomethingbyme/dosomethingbyme.github.io"
 google_scholar_stats_use_cdn : false
+safe: false
+plugins_dir: _plugins
 
 # google analytics
 google_analytics_id      :  # get google_analytics_id from https://analytics.google.com/analytics/

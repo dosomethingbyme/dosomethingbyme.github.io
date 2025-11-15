@@ -6,15 +6,15 @@
    Typography
    ========================================================================== */
 
-   $doc-font-size              : 14;
+   $doc-font-size              : 16;
 
    /* paragraph indention */
    $paragraph-indent           : false; // true, false (default)
    $indent-var                 : 0.5em;
    
    /* system typefaces */
-   $serif                      :  "Trebuchet MS",sans-serif; // Georgia, Times, sans-serif;
-   $sans-serif                 : "Trebuchet MS", Helvetica,"Source Han Sans", "Microsoft YaHei", sans-serif;
+   $serif                      :  "Playfair Display", "Noto Serif SC", "Source Han Serif SC", serif;
+   $sans-serif                 : "Inter", "Source Han Sans", "Noto Sans SC", "Microsoft YaHei", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
    // $sans-serif                 : Georgia, serif, sans-serif;
    
    // $sans-serif                 : -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
@@ -31,9 +31,9 @@
    $calisto                    : "Calisto MT", serif;
    $garamond                   : Garamond, serif;
    
-   $global-font-family         : $serif;
+   $global-font-family         : $sans-serif;
    $header-font-family         : $serif;
-   $caption-font-family        : $serif;
+   $caption-font-family        : $sans-serif;
    
    /* type scale */
    $type-size-1                : 2.441em;  // ~39.056px
@@ -50,25 +50,25 @@
       Colors
       ========================================================================== */
    
-   $gray                       : #7a8288;
-   $dark-gray                  : mix(#000, $gray, 40%);
-   $darker-gray                : mix(#000, $gray, 60%);
-   $light-gray                 : mix(#fff, $gray, 50%);
+   $gray                       : #5c6276;
+   $dark-gray                  : mix(#000, $gray, 35%);
+   $darker-gray                : mix(#000, $gray, 55%);
+   $light-gray                 : mix(#fff, $gray, 55%);
    $lighter-gray               : mix(#fff, $gray, 90%);
-   
-   $body-color                 : #fff;
-   $background-color           : #fff;
-   $code-background-color      : #EDEDEB;
-   $code-text-color           : #E65555;
+
+   $body-color                 : #f8f6f2;
+   $background-color           : #f8f6f2;
+   $code-background-color      : #f1ede4;
+   $code-text-color            : #a14d4d;
    $code-background-color-dark : $light-gray;
-   $text-color                 : $dark-gray;
-   $border-color               : $lighter-gray;
-   
-   $primary-color              : #7a8288;
-   $success-color              : #62c462;
-   $warning-color              : #f89406;
-   $danger-color               : #ee5f5b;
-   $info-color                 : #224b8d;
+   $text-color                 : #1f232e;
+   $border-color               : #e5ddd0;
+
+   $primary-color              : #1f2a44;
+   $success-color              : #4e8d7c;
+   $warning-color              : #c47f1b;
+   $danger-color               : #b45c5c;
+   $info-color                 : #5564a0;
    // $info-color                 : #52adc8;
    
    /* brands */
