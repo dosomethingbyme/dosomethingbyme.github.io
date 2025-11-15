@@ -66,7 +66,7 @@ redirect_from:
 
 - `Ye Yang`, Qingyu Yang, Donghe Li, et al. LLM-MAC: LLM-Driven Multi-Agent Coordination for Generalizable Home Energy Management. *Chinese Control Conference (CCC)*, 2025. (EI, 已录用) [[网页]](https://doi.org/10.23919/CCC64809.2025.11179521)
 
-- `Ye Yang`, Rong Hu, et al. LLM-BAS: Large Language Model-Based Battery Health-Aware Scheduling in Building Energy Systems. *IEEE-China Conference on System Simulation Technology and its Applications (CCSSTA)*, 2025. (EI, 已录用) [[网页]](https://doi.org/10.1109/IEEECONF65522.2025.11137012) 
+- `Ye Yang`, Rong Hu, et al. LLM-BAS: Large Language Model-Based Battery Health-Aware Scheduling in Building Energy Systems. *IEEE-China Conference on System Simulation Technology and its Applications (CCSSTA)*, 2025. (EI, 已检索) [[网页]](https://doi.org/10.1109/IEEECONF65522.2025.11137012) 
 
 - `Ye Yang`, Qingyu Yang, et al. Large Language Model-Driven Rule Synthesis for Adaptive Household Energy Management. *Cyber-Physical Energy Systems*, 2025. (中国卓越期刊, 已录用)  
 
@@ -74,13 +74,14 @@ redirect_from:
 
 - Rong Hu, `Ye Yang`（共一通讯）, et al. Large Language Model Driven Transferable Key Information Extraction Mechanism for Nonstandardized Tables. *Scientific Reports*, 2025. (SCI 三区, 已检索)  [[网页]](https://dx.doi.org/10.1038/s41598-025-15627-z) 
 
-### 中文
----
 
 ### 专利
 ---
 - 孙莉, `杨烨`, 等. 一种基于大模型进行海关命名实体识别方法. 
 - 孙莉, `杨烨`, 等. 基于知识图谱和大规模语言模型的海关实务问答识别方法. 
+
+### 软著
+---
 - `杨烨`. 基于智能分类的大学生技术交流平台. 
 
 <span class='anchor' id='-ryjx'></span>
@@ -88,11 +89,7 @@ redirect_from:
 # 🏅 荣誉奖项
 - *2025* 获得 研究生国家奖学金
 - *2025* 获得 研究生一等学业奖学金
-<!-- 
-<span class='anchor' id='-xshy'></span> 
 
-# 🏛️ 学术会议
--->
 <span class='anchor' id='-gzsx'></span>
 
 # 💻 工作实习
