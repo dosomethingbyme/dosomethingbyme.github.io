@@ -13,7 +13,16 @@
     padding-bottom: 0em;
     color: $text-color;
     font-family: $global-font-family;
-    line-height: 1.5;
+    line-height: 1.7;
+    background-color: $body-color;
+    background-image:
+      radial-gradient(circle at 12% 20%, rgba(100, 244, 255, 0.12), transparent 45%),
+      radial-gradient(circle at 88% 5%, rgba(100, 186, 255, 0.18), transparent 50%),
+      radial-gradient(circle at 75% 70%, rgba(138, 255, 209, 0.08), transparent 55%),
+      linear-gradient(135deg, rgba(2, 7, 25, 0.95), rgba(3, 4, 13, 0.95));
+    background-attachment: fixed;
+    min-height: 100vh;
+    overflow-x: hidden;
   
     &.overflow--hidden {
       /* when primary navigation is visible, the content in the background won't scroll */
@@ -25,13 +34,15 @@
     margin: 1em 0 0.5em;
     line-height: 1.2;
     font-family: $header-font-family;
-    font-weight: bold;
+    font-weight: 600;
+    letter-spacing: 0.02em;
   }
   
   h1 {
     // margin: 4em 0 0.5em;
     margin-top: 1em;
     font-size: $type-size-3;
+    text-transform: none;
   }
   
   h2 {
@@ -59,7 +70,12 @@
   }
   
   p {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.75em;
+  }
+
+  ::selection {
+    background: rgba(100, 244, 255, 0.35);
+    color: #0b1128;
   }
   
   u,
@@ -100,10 +116,11 @@
   
   blockquote {
     margin: 2em 1em 2em 0;
-    padding-left: 1em;
-    padding-right: 1em;
+    padding: 1.5em;
     font-style: italic;
     border-left: 0.25em solid $primary-color;
+    background: rgba(100, 244, 255, 0.05);
+    border-radius: 0.5em;
   
     cite {
       font-style: italic;
@@ -118,21 +135,26 @@
   /* links */
   
   a {
-    
+    color: $link-color;
+    text-decoration: none;
+    transition: $global-transition;
+
     &:focus {
       @extend %tab-focus;
     }
-  
+
     &:hover,
     &:active {
       outline: 0;
+      color: $link-color-hover;
+      text-shadow: 0 0 12px rgba(100, 244, 255, 0.5);
     }
   }
   
   /* code */
   
   tt, code, kbd, samp, pre {
-    font-family: $serif;
+    font-family: $caption-font-family;
     color: $code-text-color ;
   }
   
@@ -149,9 +171,9 @@
     padding-bottom: 0.1rem;
     font-size: $type-size-6;
     background: $code-background-color;
-    border: 1px solid $lighter-gray;
-    border-radius: $border-radius;
-    box-shadow: $box-shadow;
+    border: 1px solid rgba(100, 244, 255, 0.2);
+    border-radius: 0.5rem;
+    box-shadow: 0 12px 30px rgba(5, 12, 32, 0.45);
   
     &:before, &:after {
       letter-spacing: -0.2em;
