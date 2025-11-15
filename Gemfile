@@ -1,5 +1,9 @@
 source "https://rubygems.org"
 
+# Provide compatibility for gems that still rely on the removed `Object#tainted?`
+compat_patch = File.join(__dir__, "_plugins", "tainted_compat.rb")
+require compat_patch if File.exist?(compat_patch)
+
 # Hello! This is where you manage which Jekyll version is used to run.
 # When you want to use a different version, change it below, save the
 # file and run `bundle install`. Run Jekyll with `bundle exec`, like so:
