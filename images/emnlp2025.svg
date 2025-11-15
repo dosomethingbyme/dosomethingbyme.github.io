@@ -1,0 +1,13 @@
+<svg width="480" height="320" viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="480" height="320" rx="32" fill="url(#paint0_linear)"/>
+  <path d="M70 250H410" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-linecap="round"/>
+  <text x="70" y="140" fill="#ffffff" font-family="'Playfair Display', 'Noto Serif SC', serif" font-size="48" font-weight="600">EMNLP</text>
+  <text x="70" y="190" fill="#f8f6f2" font-family="'Inter','Noto Sans SC',sans-serif" font-size="24" font-weight="500">2025 Findings</text>
+  <text x="70" y="230" fill="rgba(248,246,242,0.8)" font-family="'Inter','Noto Sans SC',sans-serif" font-size="18">Empirical Methods in NLP</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="480" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#5B5FC0"/>
+      <stop offset="100%" stop-color="#2E3350"/>
+    </linearGradient>
+  </defs>
+</svg>
