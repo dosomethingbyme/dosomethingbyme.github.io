@@ -13,8 +13,8 @@
    $indent-var                 : 0.5em;
    
    /* system typefaces */
-   $serif                      :  "Playfair Display", "Noto Serif SC", "Source Han Serif SC", serif;
-   $sans-serif                 : "Inter", "Source Han Sans", "Noto Sans SC", "Microsoft YaHei", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+   $serif                      :  "Noto Serif SC", "Source Han Serif SC", "Times New Roman", serif;
+   $sans-serif                 : "SF Pro Display", "SF Pro Text", "PingFang SC", "Helvetica Neue", "HarmonyOS Sans", "Inter", "Noto Sans SC", "Microsoft YaHei", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
    // $sans-serif                 : Georgia, serif, sans-serif;
    
    // $sans-serif                 : -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
@@ -56,19 +56,19 @@
    $light-gray                 : mix(#fff, $gray, 55%);
    $lighter-gray               : mix(#fff, $gray, 90%);
 
-   $body-color                 : #f8f6f2;
-   $background-color           : #f8f6f2;
-   $code-background-color      : #f1ede4;
-   $code-text-color            : #a14d4d;
-   $code-background-color-dark : $light-gray;
-   $text-color                 : #1f232e;
-   $border-color               : #e5ddd0;
+   $body-color                 : #f4f6fb;
+   $background-color           : #f4f6fb;
+   $code-background-color      : #eef1f7;
+   $code-text-color            : #344155;
+   $code-background-color-dark : #dfe3ec;
+   $text-color                 : #0f172a;
+   $border-color               : #e5e7ef;
 
-   $primary-color              : #1f2a44;
-   $success-color              : #4e8d7c;
-   $warning-color              : #c47f1b;
-   $danger-color               : #b45c5c;
-   $info-color                 : #5564a0;
+   $primary-color              : #0f172a;
+   $success-color              : #15803d;
+   $warning-color              : #b45309;
+   $danger-color               : #b91c1c;
+   $info-color                 : #0ea5e9;
    // $info-color                 : #52adc8;
    
    /* brands */
