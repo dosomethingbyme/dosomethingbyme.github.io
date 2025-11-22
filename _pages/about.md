@@ -106,40 +106,95 @@ redirect_from:
     <h2>📝 论文专利</h2>
   </div>
   <div class="section-card">
-    <h3>英文论文</h3>
-    <div class='paper-box'><div class='paper-box-image'><div><div class="badge">EMNLP 2025</div><img src='images/emnlp2025.svg' alt="sym" width="100%"></div></div>
-    <div class='paper-box-text' markdown="1">
+    <h3>精选论文</h3>
 
--       `Ye Yang`, Donghe Li, et al. MisinfoBench: A Multi-Dimensional Benchmark for Evaluating LLMs' Resilience to Misinformation. *Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP)*, 2025. (CCF-B, 已录用) [[网页]](https://doi.org/10.18653/v1/2025.findings-emnlp.540)
+    <article class="paper-box">
+      <div class="paper-box-image">
+        <div>
+          <div class="badge">EMNLP 2025</div>
+          <img src='images/emnlp2025.svg' alt="EMNLP 2025" width="100%">
+        </div>
+      </div>
+      <div class="paper-box-text">
+        <p class="paper-title">MisinfoBench: A Multi-Dimensional Benchmark for Evaluating LLMs' Resilience to Misinformation</p>
+        <p class="paper-authors"><span class="paper-author">Ye Yang</span>, Donghe Li, et al.</p>
+        <p class="paper-meta"><em>Findings of EMNLP 2025</em> · CCF-B · 已录用</p>
+        <div class="paper-links">
+          <a class="paper-link" href="https://doi.org/10.18653/v1/2025.findings-emnlp.540" target="_blank" rel="noreferrer noopener">网页</a>
+        </div>
+      </div>
+    </article>
 
+    <article class="paper-box">
+      <div class="paper-box-image">
+        <div>
+          <div class="badge">IEEE IoT J. 2025</div>
+          <img src='images/iotj2025.svg' alt="IEEE IoT Journal 2025" width="100%">
+        </div>
+      </div>
+      <div class="paper-box-text">
+        <p class="paper-title">Human-in-the-Loop Battery Scheduling in Buildings via Intent-Guided Rule–Reinforcement Learning</p>
+        <p class="paper-authors"><span class="paper-author">Ye Yang</span>, et al.</p>
+        <p class="paper-meta"><em>IEEE Internet of Things Journal</em>, 2025 · SCI 二区 TOP · 已发表</p>
+        <div class="paper-links">
+          <a class="paper-link" href="https://dx.doi.org/10.1109/JIOT.2025.3618644" target="_blank" rel="noreferrer noopener">网页</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="paper-box">
+      <div class="paper-box-image">
+        <div>
+          <div class="badge">ITSC 2025</div>
+          <img src='images/itsc2025.svg' alt="ITSC 2025" width="100%">
+        </div>
+      </div>
+      <div class="paper-box-text">
+        <p class="paper-title">Detection and Correction of Driver Mode Confusion Using LLM-Based Semantic Feedback in SAE Level 2 Automation</p>
+        <p class="paper-authors"><span class="paper-author">Ye Yang</span>, Donghe Li*, et al.</p>
+        <p class="paper-meta"><em>IEEE Intelligent Transportation Systems Conference</em>, 2025 · 交通顶会 · 已录用</p>
+      </div>
+    </article>
+  </div>
+
+  <div class="section-card">
+    <h3>更多论文</h3>
+    <div class="paper-list">
+      <article class="paper-list__item">
+        <div>
+          <p class="paper-title">LLM-MAC: LLM-Driven Multi-Agent Coordination for Generalizable Home Energy Management</p>
+          <p class="paper-meta"><em>Chinese Control Conference (CCC)</em>, 2025 · EI · 已录用</p>
+        </div>
+        <a class="paper-link" href="https://doi.org/10.23919/CCC64809.2025.11179521" target="_blank" rel="noreferrer noopener">网页</a>
+      </article>
+      <article class="paper-list__item">
+        <div>
+          <p class="paper-title">LLM-BAS: Large Language Model-Based Battery Health-Aware Scheduling in Building Energy Systems</p>
+          <p class="paper-meta"><em>IEEE-China Conference on System Simulation Technology and its Applications (CCSSTA)</em>, 2025 · EI · 已检索</p>
+        </div>
+        <a class="paper-link" href="https://doi.org/10.1109/IEEECONF65522.2025.11137012" target="_blank" rel="noreferrer noopener">网页</a>
+      </article>
+      <article class="paper-list__item">
+        <div>
+          <p class="paper-title">Large Language Model-Driven Rule Synthesis for Adaptive Household Energy Management</p>
+          <p class="paper-meta"><em>Cyber-Physical Energy Systems</em>, 2025 · 中国卓越期刊 · 已录用</p>
+        </div>
+      </article>
+      <article class="paper-list__item">
+        <div>
+          <p class="paper-title">Zero-shot Load Forecasting for Integrated Energy Systems: A Large Language Model-based Framework with Multi-task Learning</p>
+          <p class="paper-meta"><em>Neurocomputing</em>, 2025 · SCI 二区 · 已检索</p>
+        </div>
+        <a class="paper-link" href="https://doi.org/10.1016/j.neucom.2025.131288" target="_blank" rel="noreferrer noopener">网页</a>
+      </article>
+      <article class="paper-list__item">
+        <div>
+          <p class="paper-title">Large Language Model Driven Transferable Key Information Extraction Mechanism for Nonstandardized Tables</p>
+          <p class="paper-meta"><em>Scientific Reports</em>, 2025 · SCI 三区 · 已检索 · 共一通讯</p>
+        </div>
+        <a class="paper-link" href="https://dx.doi.org/10.1038/s41598-025-15627-z" target="_blank" rel="noreferrer noopener">网页</a>
+      </article>
     </div>
-    </div>
-
-    <div class='paper-box'><div class='paper-box-image'><div><div class="badge">IEEE IoT J. 2025</div><img src='images/iotj2025.svg' alt="sym" width="100%"></div></div>
-    <div class='paper-box-text' markdown="1">
-
--       `Ye Yang`, et al. Human-in-the-Loop Battery Scheduling in Buildings via Intent-Guided Rule–Reinforcement Learning. *IEEE Internet of Things Journal*, 2025. (SCI 二区 Top, 已发表) [[网页]](https://dx.doi.org/10.1109/JIOT.2025.3618644)
-
-    </div>
-    </div>
-
-    <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ITSC 2025</div><img src='images/itsc2025.svg' alt="sym" width="100%"></div></div>
-    <div class='paper-box-text' markdown="1">
-
--       `Ye Yang`, Donghe Li*, et al. Detection and Correction of Driver Mode Confusion Using LLM-Based Semantic Feedback in SAE Level 2 Automation. *IEEE Intelligent Transportation Systems Conference (ITSC)*, 2025. (交通顶会, 已录用)
-
-    </div>
-    </div>
-
-- `Ye Yang`, Qingyu Yang, Donghe Li, et al. LLM-MAC: LLM-Driven Multi-Agent Coordination for Generalizable Home Energy Management. *Chinese Control Conference (CCC)*, 2025. (EI, 已录用) [[网页]](https://doi.org/10.23919/CCC64809.2025.11179521)
-
-- `Ye Yang`, Rong Hu, et al. LLM-BAS: Large Language Model-Based Battery Health-Aware Scheduling in Building Energy Systems. *IEEE-China Conference on System Simulation Technology and its Applications (CCSSTA)*, 2025. (EI, 已检索) [[网页]](https://doi.org/10.1109/IEEECONF65522.2025.11137012)
-
-- `Ye Yang`, Qingyu Yang, et al. Large Language Model-Driven Rule Synthesis for Adaptive Household Energy Management. *Cyber-Physical Energy Systems*, 2025. (中国卓越期刊, 已录用)
-
-- Jiaheng Li, Donghe Li, `Ye Yang`, et al. Zero-shot Load Forecasting for Integrated Energy Systems: A Large Language Model-based Framework with Multi-task Learning. *Neurocomputing*, 2025. (SCI 二区, 已检索)  [[网页]](https://doi.org/10.1016/j.neucom.2025.131288)
-
-- Rong Hu, `Ye Yang`（共一通讯）, et al. Large Language Model Driven Transferable Key Information Extraction Mechanism for Nonstandardized Tables. *Scientific Reports*, 2025. (SCI 三区, 已检索)  [[网页]](https://dx.doi.org/10.1038/s41598-025-15627-z)
   </div>
 
   <div class="section-card">
