@@ -193,9 +193,9 @@ h1:before, .anchor:before {
 }
 
 body {
-    background: radial-gradient(circle at 20% 20%, rgba(14, 165, 233, 0.12), transparent 30%),
-                radial-gradient(circle at 80% 0%, rgba(79, 70, 229, 0.08), transparent 28%),
-                linear-gradient(180deg, #f8f9fb 0%, #f3f5f9 100%);
+    background: radial-gradient(circle at 20% 20%, rgba(14, 165, 233, 0.08), transparent 30%),
+                radial-gradient(circle at 78% 8%, rgba(79, 70, 229, 0.06), transparent 28%),
+                linear-gradient(180deg, #f7f8fb 0%, #f0f2f8 100%);
     background-color: $background-color;
     background-attachment: fixed;
     font-family: $global-font-family;
@@ -214,6 +214,121 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+}
+
+.page.home-cards .page__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.35rem;
+    max-width: 980px;
+}
+
+.page.home-cards .page__content > p:first-of-type {
+    margin: 0;
+    padding: clamp(1.25rem, 4vw, 1.75rem);
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(242, 246, 255, 0.9));
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 28px 65px rgba(15, 23, 42, 0.12);
+    backdrop-filter: blur(10px);
+}
+
+.page.home-cards .page__content h2 {
+    margin-bottom: 0.4rem;
+    padding: 0.35rem 0;
+    font-size: 1.35rem;
+    letter-spacing: 0.02em;
+    color: #0f172a;
+    position: relative;
+}
+
+.page.home-cards .page__content h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.35rem;
+    width: 68px;
+    height: 3px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, rgba(14, 165, 233, 0.6), rgba(79, 70, 229, 0.4));
+}
+
+.page.home-cards .page__content h3 {
+    margin: 0.25rem 0;
+    font-size: 1.05rem;
+    color: #334155;
+    letter-spacing: 0.01em;
+}
+
+.page.home-cards .page__content h2 + p {
+    margin: 0;
+    padding: 1rem 1.25rem;
+    border-radius: 18px;
+    background: #fff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+}
+
+.page.home-cards .page__content h2 + ul,
+.page.home-cards .page__content h2 + ol,
+.page.home-cards .page__content h3 + ul,
+.page.home-cards .page__content h3 + ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.85rem;
+}
+
+.page.home-cards .page__content h2 + ul > li,
+.page.home-cards .page__content h3 + ul > li {
+    padding: 1rem 1.1rem;
+    border-radius: 16px;
+    background: linear-gradient(180deg, #ffffff 0%, #f7f8fb 100%);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 16px 35px rgba(15, 23, 42, 0.1);
+}
+
+.page.home-cards .page__content h3 + ol {
+    counter-reset: publication;
+}
+
+.page.home-cards .page__content h3 + ol > li,
+.page.home-cards .page__content h2 + ol > li {
+    position: relative;
+    counter-increment: publication;
+    padding: 1.15rem 1.25rem 1.15rem 3.2rem;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ffffff 0%, #f6f7fb 100%);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 18px 38px rgba(15, 23, 42, 0.11);
+}
+
+.page.home-cards .page__content h3 + ol > li::before,
+.page.home-cards .page__content h2 + ol > li::before {
+    content: counter(publication) ".";
+    position: absolute;
+    left: 1rem;
+    top: 1.2rem;
+    font-weight: 700;
+    color: #0ea5e9;
+}
+
+.page.home-cards .page__content a {
+    color: #0f172a;
+    border-bottom: 1px dotted rgba(14, 165, 233, 0.35);
+}
+
+.page.home-cards .page__content a:hover {
+    color: #0ea5e9;
+}
+
+.page.home-cards .page__content strong {
+    color: #0f172a;
+}
+
+.page.home-cards .page__content em {
+    color: #334155;
 }
 
 .aero-card {
