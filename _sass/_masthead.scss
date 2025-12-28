@@ -5,18 +5,20 @@
 .masthead {
   position: sticky;
   top: 0;
-  background-color: white;
-  border-bottom: 1px solid $border-color;
+  background-color: rgba(4, 9, 26, 0.85);
+  border-bottom: 1px solid rgba(100, 244, 255, 0.15);
   -webkit-animation: intro 0.3s both;
           animation: intro 0.3s both;
   -webkit-animation-delay: 0.15s;
           animation-delay: 0.15s;
   z-index: 20;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 15px 40px rgba(2, 6, 23, 0.55);
 
   &__inner-wrap {
     @include container;
     @include clearfix;
-    padding: .5em;
+    padding: .75em 1.5em;
     font-family: $sans-serif-narrow;
 
     @include breakpoint($x-large) {
@@ -29,6 +31,13 @@
 
     a {
       text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.75);
+      &:hover {
+        color: #fff;
+      }
     }
   }
 }
@@ -57,6 +66,7 @@
   display: block;
   list-style-type: none;
   white-space: nowrap;
+  padding: 0.25em 0;
 
   &--lg {
     padding-right: 2em;
