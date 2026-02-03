@@ -107,3 +107,121 @@ h1:before, .anchor:before {
     background-color: #00369f;
     font-size: .8em;
 }
+
+/* --- Apple-like clean visual system --- */
+:root {
+    --bg: #f5f5f7;
+    --surface: #ffffff;
+    --surface-2: #fafafa;
+    --text: #1d1d1f;
+    --muted: #6e6e73;
+    --accent: #0071e3;
+    --border: rgba(0, 0, 0, 0.08);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: "SF Pro Text", "SF Pro Display", "Helvetica Neue", "PingFang SC", "Noto Sans SC", sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 0.1px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "SF Pro Display", "SF Pro Text", "Helvetica Neue", "PingFang SC", "Noto Sans SC", sans-serif;
+    letter-spacing: 0.2px;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.masthead {
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+}
+
+.page__content, .archive, .sidebar {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    border-radius: 18px;
+}
+
+.page__content {
+    padding: 2.25rem 2.5rem;
+}
+
+.sidebar {
+    padding: 1.5rem;
+}
+
+.author__avatar img {
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.author__content, .author__urls {
+    color: var(--muted);
+}
+
+.page__content > p,
+.page__content > ul,
+.page__content > ol {
+    color: var(--muted);
+    line-height: 1.85;
+}
+
+.page__content > ul li {
+    margin-bottom: 0.4rem;
+}
+
+.paper-box {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-bottom: none;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin: 1.25rem 0;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+}
+
+.paper-box-image img {
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.badge {
+    background: rgba(0, 113, 227, 0.12);
+    color: #005bb5;
+    border: 1px solid rgba(0, 113, 227, 0.2);
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+.btn, button, input[type="submit"] {
+    background: var(--accent);
+    color: #fff;
+    border-radius: 999px;
+    border: none;
+    box-shadow: 0 6px 14px rgba(0, 113, 227, 0.2);
+}
+
+.btn:hover, button:hover, input[type="submit"]:hover {
+    filter: brightness(0.96);
+}
+
+@media (max-width: 48rem) {
+    .page__content {
+        padding: 1.25rem;
+    }
+}
