@@ -17,8 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-我是上海电机学院电子信息专业的硕士研究生。本科毕业于安徽新华学院软件工程专业。我已经发表/录用 7+ 篇学术论文
- <a href='https://scholar.google.com/citations?user=6j4_bnUAAAAJ&hl=zh-CN'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=引用"></a>。
+我是上海电机学院电子信息专业的硕士研究生。本科毕业于安徽新华学院软件工程专业。我已经发表/录用 7+ 篇学术论文 <a href='https://scholar.google.com/citations?user=6j4_bnUAAAAJ&hl=zh-CN' target='_blank'><img src="https://img.shields.io/badge/Google%20Scholar-引用-9cf?logo=Google%20Scholar&labelColor=f6f6f6&style=flat"></a>。
 
 我的研究领域包括：
 - 大语言模型（LLM）
@@ -36,8 +35,7 @@ redirect_from:
 
 # 📝 论文专利
 
-### 英文
----
+### 英文论文
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">EMNLP 2025</div><img src='images/emnlp2025.svg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
@@ -76,12 +74,10 @@ redirect_from:
 
 
 ### 专利
----
 - 孙莉, `杨烨`, 等. 一种基于大模型进行海关命名实体识别方法. 
 - 孙莉, `杨烨`, 等. 基于知识图谱和大规模语言模型的海关实务问答识别方法. 
 
 ### 软著
----
 - `杨烨`. 基于智能分类的大学生技术交流平台. 
 
 <span class='anchor' id='-ryjx'></span>
