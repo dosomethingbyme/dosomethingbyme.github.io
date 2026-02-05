@@ -1,0 +1,25 @@
+# robots.txt for https://aichina.me
+User-agent: *
+Allow: /
+Disallow: /assets/
+Disallow: /.bundle/
+Disallow: /vendor/
+
+# Sitemap location
+Sitemap: https://aichina.me/sitemap.xml
+
+# Common crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: 360Spider
+Allow: /
+
+User-agent: Sogou web spider
+Allow: /

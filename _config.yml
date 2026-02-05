@@ -9,6 +9,8 @@
 title                    : "杨烨"
 description              : "LLM，强化学习，综合能源系统"
 repository               : "dosomethingbyme/dosomethingbyme.github.io"
+url                      : "https://aichina.me"
+baseurl                  : ""
 google_scholar_stats_use_cdn : false
 
 # google analytics
