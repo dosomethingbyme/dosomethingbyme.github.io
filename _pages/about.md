@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-目前在重庆大学电气工程攻读博士学位（在读），此前为上海电机学院电子信息硕士研究生，本科毕业于安徽新华学院软件工程专业。研究兴趣聚焦大语言模型、强化学习与综合能源系统，已发表/录用 7+ 篇学术论文 
+目前在重庆大学电气工程博士在读，此前为上海电机学院电子信息硕士研究生，本科毕业于安徽新华学院软件工程专业。研究兴趣聚焦大语言模型、强化学习与综合能源系统，已发表/录用 7+ 篇学术论文 
 <!-- <a href='https://scholar.google.com/citations?user=6j4_bnUAAAAJ&hl=zh-CN' target='_blank'><img src="https://img.shields.io/badge/Google%20Scholar-引用-9cf?logo=Google%20Scholar&labelColor=f6f6f6&style=flat"></a>。 -->
 
 我的研究领域包括：
@@ -35,7 +35,7 @@ redirect_from:
  
 <span class='anchor' id='-lwzl'></span>
 
-# 📝 论文专利
+# 📝 论文
 
 ### 英文论文
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">EMNLP 2025</div><img src='images/emnlp2025.svg' alt="sym" width="100%"></div></div>
@@ -70,8 +70,6 @@ redirect_from:
 
 - `Ye Yang`, Qingyu Yang, et al. Large Language Model-Driven Rule Synthesis for Adaptive Household Energy Management. *Cyber-Physical Energy Systems*, 2025. (中国卓越期刊, 已录用)  
 
-- Jiaheng Li, Donghe Li, `Ye Yang`, et al. Zero-shot Load Forecasting for Integrated Energy Systems: A Large Language Model-based Framework with Multi-task Learning. *Neurocomputing*, 2025. (SCI 二区, 已检索)  [[网页]](https://doi.org/10.1016/j.neucom.2025.131288)
-
 - Rong Hu, `Ye Yang`（共一通讯）, et al. Large Language Model Driven Transferable Key Information Extraction Mechanism for Nonstandardized Tables. *Scientific Reports*, 2025. (SCI 三区, 已检索)  [[网页]](https://dx.doi.org/10.1038/s41598-025-15627-z) 
 
 
@@ -84,20 +82,16 @@ redirect_from:
 
 - Yu Wanju, Li Donghe*, `Yang Ye`, et al. Large Language Model-Guided Gear-Shifting Optimization for Energy-Saving Rail Operations. *IEEE Intelligent Transportation Systems Conference (ITSC)*, 2025. (交通领域旗舰会议, 已录用)
 
-### 专利
-- 孙莉, `杨烨`, 等. 一种基于大模型进行海关命名实体识别方法. 
-- 孙莉, `杨烨`, 等. 基于知识图谱和大规模语言模型的海关实务问答识别方法. 
-
 ### 软著
 - `杨烨`. 基于智能分类的大学生技术交流平台. 
 
 <span class='anchor' id='-ryjx'></span>
 
 # 🏅 荣誉奖项
-- *2023* 获得 上海电机学院研究生三等学业奖学金（校级）
-- *2024* 获得 上海电机学院研究生三等学业奖学金（校级）
-- *2025* 获得 上海电机学院研究生一等学业奖学金（校级）
-- *2025* 获得 研究生国家奖学金（国家级）
+- *2023* 获得 上海电机学院研究生三等学业奖学金
+- *2024* 获得 上海电机学院研究生三等学业奖学金
+- *2025* 获得 上海电机学院研究生一等学业奖学金
+- *2025* 获得 研究生国家奖学金
 
 <span class='anchor' id='-gzsx'></span>
 
