@@ -10,7 +10,11 @@
               English
             </a>
           </li> -->
-          {% for link in site.data.navigation.main %}
+          {% assign nav_links = site.data.navigation.main %}
+          {% if page.lang == "en" and site.data.navigation.main_en %}
+            {% assign nav_links = site.data.navigation.main_en %}
+          {% endif %}
+          {% for link in nav_links %}
             <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
         </ul>

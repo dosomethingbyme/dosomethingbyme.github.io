@@ -17,3 +17,19 @@ main:
 
   - title: "工作实习"
     url: "/#-gzsx"
+
+main_en:
+  - title: "About"
+    url: "/en/#about-me"
+
+  - title: "Education"
+    url: "/en/#-xl"
+
+  - title: "Publications"
+    url: "/en/#-lwzl"
+
+  - title: "Honors"
+    url: "/en/#-ryjx"
+
+  - title: "Experience"
+    url: "/en/#-gzsx"
