@@ -4,12 +4,6 @@
       <nav id="site-nav" class="greedy-nav">
         <button><div class="navicon"></div></button>
         <ul class="visible-links">
-          <!-- <li class="masthead__menu-item masthead__menu-item--lg masthead__menu-home-item">
-            <a href="https://tangjyan.github.io/" target="_self">
-              <img class="svg" src="/images/en.svg" width="20pt"> 
-              English
-            </a>
-          </li> -->
           {% assign nav_links = site.data.navigation.main %}
           {% if page.lang == "en" and site.data.navigation.main_en %}
             {% assign nav_links = site.data.navigation.main_en %}
@@ -20,6 +14,13 @@
         </ul>
         <ul class="hidden-links hidden"></ul>
       </nav>
+      <div class="lang-switch">
+        {% if page.lang == "en" %}
+          <a href="{{ '/' | relative_url }}" target="_self">中文</a>
+        {% else %}
+          <a href="{{ '/en/' | relative_url }}" target="_self">English</a>
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>

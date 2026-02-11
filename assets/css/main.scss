@@ -247,6 +247,20 @@ a:hover {
     }
 }
 
+.masthead__menu {
+    display: flex;
+    align-items: center;
+}
+
+.masthead__menu nav {
+    flex: 1 1 auto;
+}
+
+.masthead__menu .lang-switch {
+    margin-left: 1rem;
+    white-space: nowrap;
+}
+
 .page__content, .archive, .sidebar {
     background: var(--surface);
     border: 1px solid rgba(0, 0, 0, 0.04);
