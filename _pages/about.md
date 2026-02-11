@@ -50,7 +50,7 @@ redirect_from:
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">IEEE IoT J. 2025</div><img src='images/iotj2025.svg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
--	`Ye Yang`, et al. <span class="paper-title">Human-in-the-Loop Battery Scheduling in Buildings via Intent-Guided Rule–Reinforcement Learning.</span> <em class="paper-venue">IEEE Internet of Things Journal</em>, 2025. (SCI 二区 Top, 已发表)  
+-	`Ye Yang`, et al. <span class="paper-title">Human-in-the-Loop Battery Scheduling in Buildings via Intent-Guided Rule–Reinforcement Learning.</span> <em class="paper-venue">IEEE Internet of Things Journal</em>, 2025. (SCI 二区 Top, 已检索)  
 [[网页]](https://dx.doi.org/10.1109/JIOT.2025.3618644)
 
 </div>
