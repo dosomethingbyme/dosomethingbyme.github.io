@@ -25,8 +25,8 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "杨烨"
   avatar           : "images/android-chrome-512x512.png"
-  bio              : "上海电机学院"
-  location         : "上海"
+  bio              : "重庆大学"
+  location         : "重庆"
   employer         : #"Hefei General Machinery Research Institute"
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=6j4_bnUAAAAJ&hl=zh-CN"

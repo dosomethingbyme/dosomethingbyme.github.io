@@ -17,7 +17,8 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-我是上海电机学院电子信息专业的硕士研究生。本科毕业于安徽新华学院软件工程专业。我已经发表/录用 7+ 篇学术论文 <a href='https://scholar.google.com/citations?user=6j4_bnUAAAAJ&hl=zh-CN' target='_blank'><img src="https://img.shields.io/badge/Google%20Scholar-引用-9cf?logo=Google%20Scholar&labelColor=f6f6f6&style=flat"></a>。
+我是上海电机学院电子信息专业的硕士研究生。本科毕业于安徽新华学院软件工程专业。我已经发表/录用 7+ 篇学术论文 
+<!-- <a href='https://scholar.google.com/citations?user=6j4_bnUAAAAJ&hl=zh-CN' target='_blank'><img src="https://img.shields.io/badge/Google%20Scholar-引用-9cf?logo=Google%20Scholar&labelColor=f6f6f6&style=flat"></a>。 -->
 
 我的研究领域包括：
 - 大语言模型（LLM）
@@ -28,6 +29,7 @@ redirect_from:
 <span class='anchor' id='-xl'></span>
 
 # 🎓 学历
+- *2026.09 - 在读*, 重庆大学 电气工程, 重庆, 博士
 - *2023.09 - 2026.03*, 上海电机学院 电子信息, 上海, 硕士
 - *2018.09 - 2022.07*, 安徽新华学院 软件工程, 安徽合肥, 本科
  
