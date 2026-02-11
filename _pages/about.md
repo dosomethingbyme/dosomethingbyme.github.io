@@ -41,7 +41,7 @@ redirect_from:
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">EMNLP 2025</div><img src='images/emnlp2025.svg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
--	`Ye Yang`, Donghe Li, et al. MisinfoBench: A Multi-Dimensional Benchmark for Evaluating LLMs' Resilience to Misinformation. *Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP)*, 2025. (CCF-B, 已录用)  
+-	`Ye Yang`, Donghe Li, et al. <span class="paper-title">MisinfoBench: A Multi-Dimensional Benchmark for Evaluating LLMs' Resilience to Misinformation.</span> <em class="paper-venue">Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP)</em>, 2025. (CCF-B, 已录用)  
 [[网页]](https://doi.org/10.18653/v1/2025.findings-emnlp.540)
 
 </div>
@@ -50,7 +50,7 @@ redirect_from:
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">IEEE IoT J. 2025</div><img src='images/iotj2025.svg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
--	`Ye Yang`, et al. Human-in-the-Loop Battery Scheduling in Buildings via Intent-Guided Rule–Reinforcement Learning. *IEEE Internet of Things Journal*, 2025. (SCI 二区 Top, 已发表)  
+-	`Ye Yang`, et al. <span class="paper-title">Human-in-the-Loop Battery Scheduling in Buildings via Intent-Guided Rule–Reinforcement Learning.</span> <em class="paper-venue">IEEE Internet of Things Journal</em>, 2025. (SCI 二区 Top, 已发表)  
 [[网页]](https://dx.doi.org/10.1109/JIOT.2025.3618644)
 
 </div>
@@ -59,7 +59,7 @@ redirect_from:
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ITSC 2025</div><img src='images/itsc2025.svg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
--	`Ye Yang`, Donghe Li*, et al. Detection and Correction of Driver Mode Confusion Using LLM-Based Semantic Feedback in SAE Level 2 Automation. *IEEE Intelligent Transportation Systems Conference (ITSC)*, 2025. (交通顶会, 已录用)  
+-	`Ye Yang`, Donghe Li, et al. <span class="paper-title">Detection and Correction of Driver Mode Confusion Using LLM-Based Semantic Feedback in SAE Level 2 Automation.</span> <em class="paper-venue">IEEE Intelligent Transportation Systems Conference (ITSC)</em>, 2025. (交通顶会, 已录用)  
 
 </div>
 </div>
@@ -74,13 +74,13 @@ redirect_from:
 
 
 ### 合作论文
-- Li Jiaheng, Li Donghe*, `Yang Ye`, et al. Zero-shot Load Forecasting for Integrated Energy Systems: A Large Language Model-Based Framework with Multi-task Learning. *Neurocomputing*, 2025, 654: 131288. (SCI 二区, 已检索) [[网页]](https://doi.org/10.1016/j.neucom.2025.131288)
+- Li Jiaheng, Li Donghe, `Yang Ye`, et al. Zero-shot Load Forecasting for Integrated Energy Systems: A Large Language Model-Based Framework with Multi-task Learning. Neurocomputing, 2025, 654: 131288. (SCI 二区, 已检索) [[网页]](https://doi.org/10.1016/j.neucom.2025.131288)
 
 - Li Jiaheng, Liu Ruosong, `Yang Ye`, et al. LAISA: Large-language Agent for Industrial State Assessment. *2025 IEEE 26th China Conference on System Simulation Technology and its Applications (CCSSTA)*, 2025: 977–982. (CAA-B 类会议, 已检索)
 
 - Liu Sen, Hu Rong, `Yang Ye`, et al. LLM-BEM: Zero-shot LLM-Agent Scheduling for Smart Building Energy Management. *2025 IEEE 26th China Conference on System Simulation Technology and its Applications (CCSSTA)*, 2025: 69–74. (CAA-B 类会议, 已检索)
 
-- Yu Wanju, Li Donghe*, `Yang Ye`, et al. Large Language Model-Guided Gear-Shifting Optimization for Energy-Saving Rail Operations. *IEEE Intelligent Transportation Systems Conference (ITSC)*, 2025. (交通领域旗舰会议, 已录用)
+- Yu Wanju, Li Donghe, `Yang Ye`, et al. Large Language Model-Guided Gear-Shifting Optimization for Energy-Saving Rail Operations. *IEEE Intelligent Transportation Systems Conference (ITSC)*, 2025. (交通领域旗舰会议, 已录用)
 
 ### 软著
 - `杨烨`. 基于智能分类的大学生技术交流平台. 

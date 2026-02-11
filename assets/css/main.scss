@@ -461,6 +461,15 @@ a:hover {
             font-style: italic;
             color: var(--muted);
         }
+
+        .paper-title {
+            color: var(--text);
+        }
+
+        .paper-venue {
+            color: var(--muted);
+            font-style: italic;
+        }
     }
 
     /* 论文标题更突出 */
