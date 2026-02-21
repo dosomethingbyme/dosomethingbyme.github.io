@@ -8,7 +8,11 @@
   {% assign canonical_url = page.url | replace: "index.html", "" | prepend: site.url %}
 {% endif %}
 
-<title>{{ site.title }}</title>
+{% if page.title %}
+  <title>{{ page.title | markdownify | strip_html | strip_newlines | escape_once }} | {{ site.title }}</title>
+{% else %}
+  <title>{{ site.title }}</title>
+{% endif %}
 
 {% assign seo_description = page.description | default: page.excerpt | default: site.description %}
 {% if seo_description %}
@@ -29,9 +33,10 @@
   {% assign seo_author_twitter = seo_author_twitter | replace: "@", "" %}
 {% endif %}
 
-<meta property="og:locale" content="en">
+{% assign seo_locale = site.lang | default: "en-US" | replace: "-", "_" %}
+<meta property="og:locale" content="{{ seo_locale }}">
 <meta property="og:site_name" content="{{ site.title }}">
-<meta property="og:title" content="{{ site.title }}">
+<meta property="og:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
 <meta name="application-name" content="{{ site.title }}">
 
 <script type="application/ld+json">
@@ -49,11 +54,26 @@
   <meta property="og:url" content="{{ page.url | prepend: seo_url | replace: "/index.html", "/" }}">
 {% endif %}
 
-{% if page.excerpt %}
+{% if site.url %}
+  <link rel="alternate" hreflang="zh-CN" href="{{ site.url }}/">
+  <link rel="alternate" hreflang="en" href="{{ site.url }}/en/">
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}/">
+{% endif %}
+
+{% if seo_description %}
   <meta property="og:description" content="{{ seo_description }}">
+{% endif %}
+{% if seo_description %}
+  <meta name="description" content="{{ seo_description }}">
+{% endif %}
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+{% assign seo_keywords = page.keywords | default: site.keywords %}
+{% if seo_keywords %}
+  <meta name="keywords" content="{{ seo_keywords }}">
 {% endif %}
 
 {% if site.twitter.username %}
+  <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@{{ site.twitter.username | replace: "@", "" }}">
   <meta name="twitter:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
   <meta name="twitter:description" content="{{ seo_description }}">
@@ -62,6 +82,36 @@
   {% if seo_author_twitter %}
     <meta name="twitter:creator" content="@{{ seo_author_twitter }}">
   {% endif %}
+{% endif %}
+
+{% if site.author and site.author.avatar and site.url %}
+  <meta property="og:image" content="{{ site.author.avatar | relative_url | prepend: site.url }}">
+  <meta property="og:image:alt" content="{{ site.title }}">
+  {% if site.twitter.username %}
+    <meta name="twitter:image" content="{{ site.author.avatar | relative_url | prepend: site.url }}">
+  {% endif %}
+{% endif %}
+
+{% if page.url == "/" and site.url %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.author.name | default: site.title }}",
+  "url": "{{ site.url }}",
+  "image": "{{ site.author.avatar | relative_url | prepend: site.url }}",
+  "affiliation": [
+    "Chongqing University",
+    "Shanghai Dianji University",
+    "Anhui Xinhua University"
+  ],
+  "sameAs": [
+    {% if site.author.googlescholar %}"{{ site.author.googlescholar }}"{% endif %}{% if site.author.googlescholar and site.author.github %},{% endif %}
+    {% if site.author.github %}"https://github.com/{{ site.author.github }}"{% endif %}{% if (site.author.github or site.author.googlescholar) and site.author.orcid %},{% endif %}
+    {% if site.author.orcid %}"{{ site.author.orcid }}"{% endif %}
+  ]
+}
+</script>
 {% endif %}
 
 {% if site.facebook %}

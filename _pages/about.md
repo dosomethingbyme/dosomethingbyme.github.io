@@ -1,7 +1,9 @@
 ---
 permalink: /
-title: ""
-excerpt: ""
+title: "杨烨（Yang Ye / Ye Yang） | 重庆大学电气工程博士生"
+description: "杨烨（Yang Ye / Ye Yang / Yangye），重庆大学电气工程博士生，曾就读于上海电机学院与安徽新华学院。个人主页、教育经历与科研成果汇总。"
+excerpt: "杨烨（Yang Ye / Ye Yang / Yangye），重庆大学电气工程博士生，曾就读于上海电机学院与安徽新华学院。"
+keywords: "杨烨, Yang Ye, Ye Yang, Yangye, 重庆大学, 上海电机学院, 安徽新华学院, 杨烨 个人主页, 杨烨 博士"
 author_profile: true
 redirect_from: 
   - /about/

@@ -7,7 +7,9 @@
 
 # Site Settings
 title                    : "杨烨"
-description              : "LLM，强化学习，综合能源系统"
+description              : "杨烨（Yang Ye / Ye Yang / Yangye），重庆大学电气工程博士生，曾就读上海电机学院与安徽新华学院。"
+keywords                 : "杨烨, Yang Ye, Ye Yang, Yangye, 重庆大学, 上海电机学院, 安徽新华学院, 杨烨 个人主页, 杨烨 博士"
+lang                     : "zh-CN"
 repository               : "dosomethingbyme/dosomethingbyme.github.io"
 url                      : "https://aichina.me"
 baseurl                  : ""

@@ -1,7 +1,9 @@
 ---
 permalink: /en/
-title: ""
-excerpt: ""
+title: "Yang Ye | PhD Student at Chongqing University"
+description: "Yang Ye (Ye Yang / Yangye) is a PhD student in Electrical Engineering at Chongqing University, with prior study at Shanghai Dianji University and Anhui Xinhua University. Personal homepage, education, and publications."
+excerpt: "Yang Ye (Ye Yang / Yangye), PhD student at Chongqing University, previously at Shanghai Dianji University and Anhui Xinhua University."
+keywords: "Yang Ye, Ye Yang, Yangye, Chongqing University, Shanghai Dianji University, Anhui Xinhua University, personal homepage, PhD student"
 author_profile: true
 lang: en
 author: en
