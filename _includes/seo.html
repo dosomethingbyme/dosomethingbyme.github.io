@@ -8,11 +8,7 @@
   {% assign canonical_url = page.url | replace: "index.html", "" | prepend: site.url %}
 {% endif %}
 
-{% if page.title %}
-  <title>{{ page.title | markdownify | strip_html | strip_newlines | escape_once }} | {{ site.title }}</title>
-{% else %}
-  <title>{{ site.title }}</title>
-{% endif %}
+<title>{{ site.title }}</title>
 
 {% assign seo_description = page.description | default: page.excerpt | default: site.description %}
 {% if seo_description %}
@@ -36,7 +32,7 @@
 {% assign seo_locale = site.lang | default: "en-US" | replace: "-", "_" %}
 <meta property="og:locale" content="{{ seo_locale }}">
 <meta property="og:site_name" content="{{ site.title }}">
-<meta property="og:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
+<meta property="og:title" content="{{ site.title }}">
 <meta name="application-name" content="{{ site.title }}">
 
 <script type="application/ld+json">
