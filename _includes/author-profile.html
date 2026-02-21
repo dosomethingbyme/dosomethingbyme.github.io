@@ -5,7 +5,7 @@
 {% assign author_name = author_override.name | default: author_base.name %}
 {% assign author_avatar = author_override.avatar | default: author_base.avatar %}
 {% assign author_bio = author_override.bio | default: author_base.bio %}
-{% assign author_desc = author_override.description | default: page.description | default: author_base.description | default: site.description %}
+{% assign author_desc = author_override.description | default: author_base.description %}
 {% assign author_location = author_override.location | default: author_base.location %}
 {% assign author_employer = author_override.employer | default: author_base.employer %}
 {% assign author_uri = author_override.uri | default: author_base.uri %}
