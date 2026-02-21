@@ -19,7 +19,7 @@
 .page {
   @include breakpoint($large) {
     @include span(10 of 12 last);
-    @include prefix(0.5 of 12);
+    @include prefix(0 of 12);
     @include suffix(0 of 12);
   }
 
@@ -49,15 +49,16 @@
 }
 
 .page__content {
-  #about-me{
-    margin-top: -10em;
-      &:before { 
-        content: ''; 
-        display: block; 
-        position: relative; 
-        width: 0; 
-        height: 10em; 
-        margin-top: -10em;
+  #about-me {
+    margin-top: 0;
+    scroll-margin-top: 6rem;
+    &:before {
+      content: '';
+      display: block;
+      position: relative;
+      width: 0;
+      height: 0;
+      margin-top: 0;
     }
   }
   h1 {
@@ -411,26 +412,9 @@
   text-transform: uppercase;
 }
 
-.footer_site{
-  padding-top: 9em;
-  align-items: center;
-}
 .page_a {
   color: #224b8d;
   text-decoration: none;
   &:hover {
     text-decoration: underline;}
-}
-hr {
-  width: 100%;
-  margin: auto;
-}
-
-.footer_copyright{
-  font-family: $sans-serif-narrow;
-  margin-top: 0.5em;
-  margin-bottom: 1em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

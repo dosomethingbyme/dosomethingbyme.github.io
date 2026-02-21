@@ -726,14 +726,14 @@ a:hover {
 
 /* Footer样式优化 */
 .footer_site {
-    padding-top: 4em;
-    margin-top: 4em;
+    padding-top: 2rem;
+    margin-top: 2rem;
 
     hr {
         border: 0;
         border-top: 1px solid var(--border);
-        margin: 2em 0 1.5em 0;
-        opacity: 0.5;
+        margin: 1rem 0 1rem 0;
+        opacity: 0.35;
     }
 }
 
@@ -742,7 +742,11 @@ a:hover {
     color: var(--muted);
     opacity: 0.75;
     letter-spacing: 0.3px;
-    padding-bottom: 2em;
+    padding-bottom: 1.25rem;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 /* Emoji优化 */
@@ -921,6 +925,11 @@ h1, h2, h3 {
         .author__name {
             font-size: 1.4em;
         }
+    }
+
+    .footer_site {
+        margin-top: 1.5rem;
+        padding-top: 1.25rem;
     }
 
     .badge {
