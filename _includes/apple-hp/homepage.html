@@ -1,0 +1,172 @@
+{% assign locale = include.locale | default: page.locale | default: "zh" %}
+{% assign profile = site.data.profile[locale] %}
+
+<section id="about-me" class="hp-hero reveal">
+  <div class="hp-hero__copy">
+    <p class="hp-eyebrow">{{ profile.hero.eyebrow }}</p>
+    <h1 class="hp-hero__title">{{ profile.hero.title }}</h1>
+    <p class="hp-hero__lead">{{ profile.hero.statement }}</p>
+
+    <div class="hp-chip-row">
+      {% for chip in profile.hero.chips %}
+        <span class="hp-chip">{{ chip }}</span>
+      {% endfor %}
+    </div>
+
+    <div class="hp-button-row">
+      {% for cta in profile.hero.ctas %}
+        {% assign button_class = "hp-button hp-button--secondary" %}
+        {% if cta.style == "primary" %}
+          {% assign button_class = "hp-button hp-button--primary" %}
+        {% elsif cta.style == "link" %}
+          {% assign button_class = "hp-button hp-button--link" %}
+        {% endif %}
+
+        {% if cta.external %}
+          <a class="{{ button_class }}" href="{{ cta.url }}" target="_blank" rel="noopener noreferrer">{{ cta.label }}</a>
+        {% else %}
+          <a class="{{ button_class }}" href="{{ cta.url | relative_url }}">{{ cta.label }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <figure class="hp-hero__art">
+    <img src="{{ profile.hero.image | relative_url }}" alt="{{ profile.hero.image_alt }}" loading="eager" decoding="async">
+  </figure>
+</section>
+
+<div class="hp-stack">
+  <section id="-xl" class="hp-section reveal">
+    <header class="hp-section__header">
+      <p class="hp-eyebrow">{{ profile.education.eyebrow }}</p>
+      <h2 class="hp-section__title">{{ profile.education.title }}</h2>
+      <p class="hp-section__lead">{{ profile.education.intro }}</p>
+    </header>
+
+    <figure class="hp-ambient-art">
+      <img src="{{ profile.education.image | relative_url }}" alt="{{ profile.education.image_alt }}" loading="lazy" decoding="async">
+    </figure>
+
+    <div class="hp-highlight-grid">
+      {% for item in profile.education.highlights %}
+        <article class="hp-highlight-card">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.text }}</p>
+        </article>
+      {% endfor %}
+    </div>
+
+    <ol class="hp-timeline hp-timeline--compact">
+      {% for item in profile.education.timeline %}
+        <li class="hp-timeline__item">
+          <p class="hp-timeline__period">{{ item.period }}</p>
+          <h3 class="hp-timeline__title">{{ item.school }} · {{ item.degree }}</h3>
+          <p class="hp-timeline__meta">{{ item.location }}</p>
+        </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section id="-lwzl" class="hp-section reveal">
+    <header class="hp-section__header">
+      <p class="hp-eyebrow">{{ profile.publications.eyebrow }}</p>
+      <h2 class="hp-section__title">{{ profile.publications.title }}</h2>
+      <p class="hp-section__lead">{{ profile.publications.intro }}</p>
+    </header>
+
+    <figure class="hp-ambient-art">
+      <img src="{{ profile.publications.image | relative_url }}" alt="{{ profile.publications.image_alt }}" loading="lazy" decoding="async">
+    </figure>
+
+    <div class="hp-highlight-grid">
+      {% for item in profile.publications.focus %}
+        <article class="hp-highlight-card">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.text }}</p>
+        </article>
+      {% endfor %}
+    </div>
+
+    <div class="hp-publication-grid">
+      {% for pub in profile.publications.featured limit:3 %}
+        <article class="hp-publication-card">
+          {% if pub.image != "" %}
+            <figure class="hp-publication-card__media">
+              <img src="{{ pub.image | relative_url }}" alt="{{ pub.alt }}" loading="lazy" decoding="async">
+            </figure>
+          {% endif %}
+          <div class="hp-publication-card__body">
+            <h3>{{ pub.title }}</h3>
+            <p class="hp-publication-card__authors">{{ pub.authors }}</p>
+            <p class="hp-publication-card__meta">{{ pub.venue }}, {{ pub.year }}{% if pub.status != "" %} · {{ pub.status }}{% endif %}</p>
+            {% if pub.doi != "" %}
+              <a class="hp-text-link" href="{{ pub.doi }}">{{ profile.labels.publication_link }}</a>
+            {% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <div class="hp-button-row hp-button-row--inline">
+      {% if locale == "en" %}
+        <a class="hp-button hp-button--secondary" href="{{ '/en/cv/#-lwzl' | relative_url }}">{{ profile.labels.view_all_publications }}</a>
+      {% else %}
+        <a class="hp-button hp-button--secondary" href="{{ '/cv/#-lwzl' | relative_url }}">{{ profile.labels.view_all_publications }}</a>
+      {% endif %}
+      <a class="hp-button hp-button--link" href="https://scholar.google.com/citations?user=6j4_bnUAAAAJ&hl=zh-CN" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+    </div>
+  </section>
+
+  <section id="-ryjx" class="hp-section reveal">
+    <header class="hp-section__header">
+      <p class="hp-eyebrow">{{ profile.honors.eyebrow }}</p>
+      <h2 class="hp-section__title">{{ profile.honors.title }}</h2>
+      <p class="hp-section__lead">{{ profile.honors.intro }}</p>
+    </header>
+
+    <figure class="hp-ambient-art">
+      <img src="{{ profile.honors.image | relative_url }}" alt="{{ profile.honors.image_alt }}" loading="lazy" decoding="async">
+    </figure>
+
+    <div class="hp-metric-grid">
+      {% for metric in profile.honors.metrics %}
+        <article class="hp-metric-card">
+          <p class="hp-metric-card__value">{{ metric.value }}</p>
+          <p class="hp-metric-card__label">{{ metric.label }}</p>
+        </article>
+      {% endfor %}
+    </div>
+
+    <ul class="hp-list-card">
+      {% for item in profile.honors.list %}
+        <li>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.meta }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section id="-gzsx" class="hp-section reveal">
+    <header class="hp-section__header">
+      <p class="hp-eyebrow">{{ profile.experience.eyebrow }}</p>
+      <h2 class="hp-section__title">{{ profile.experience.title }}</h2>
+      <p class="hp-section__lead">{{ profile.experience.intro }}</p>
+    </header>
+
+    <figure class="hp-ambient-art">
+      <img src="{{ profile.experience.image | relative_url }}" alt="{{ profile.experience.image_alt }}" loading="lazy" decoding="async">
+    </figure>
+
+    <ul class="hp-list-card">
+      {% for item in profile.experience.items %}
+        <li>
+          <h3>{{ item.org }}</h3>
+          <p>{{ item.role }}</p>
+          <p>{{ item.period }} · {{ item.location }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>

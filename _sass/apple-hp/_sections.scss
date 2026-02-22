@@ -1,0 +1,194 @@
+.home-page .hp-ambient-art {
+  margin: 0 0 var(--hp-space-4);
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-md);
+  background: var(--hp-surface);
+  overflow: hidden;
+}
+
+.home-page .hp-ambient-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.home-page .hp-highlight-grid {
+  display: grid;
+  gap: var(--hp-space-3);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: var(--hp-space-4);
+}
+
+.home-page .hp-highlight-card {
+  padding: var(--hp-space-4);
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-md);
+  background: var(--hp-surface);
+}
+
+.home-page .hp-highlight-card h3 {
+  font-size: 1.15rem;
+}
+
+.home-page .hp-highlight-card p {
+  margin-top: var(--hp-space-2);
+  font-size: 0.97rem;
+}
+
+.home-page .hp-timeline {
+  display: grid;
+  gap: var(--hp-space-3);
+}
+
+.home-page .hp-timeline__item {
+  padding: var(--hp-space-4);
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-md);
+  background: var(--hp-surface);
+}
+
+.home-page .hp-timeline__period {
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.home-page .hp-timeline__title {
+  margin-top: var(--hp-space-1);
+  font-size: 1.05rem;
+}
+
+.home-page .hp-timeline__meta {
+  margin-top: 2px;
+  font-size: 0.95rem;
+}
+
+.home-page .hp-publication-grid {
+  display: grid;
+  gap: var(--hp-space-3);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.home-page .hp-publication-card {
+  display: grid;
+  grid-template-columns: minmax(0, 160px) minmax(0, 1fr);
+  gap: var(--hp-space-3);
+  align-items: center;
+  padding: var(--hp-space-3);
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-md);
+  background: var(--hp-surface);
+}
+
+.home-page .hp-publication-card__media {
+  margin: 0;
+}
+
+.home-page .hp-publication-card__media img {
+  display: block;
+  width: 100%;
+  border-radius: var(--hp-radius-sm);
+  border: 1px solid var(--hp-border);
+}
+
+.home-page .hp-publication-card__body h3,
+.home-page .hp-publication-card__body h4 {
+  font-size: 1.03rem;
+  line-height: 1.35;
+}
+
+.home-page .hp-publication-card__authors {
+  margin-top: var(--hp-space-1);
+  font-size: 0.92rem;
+}
+
+.home-page .hp-publication-card__meta {
+  margin-top: 4px;
+  font-size: 0.92rem;
+}
+
+.home-page .hp-metric-grid {
+  display: grid;
+  gap: var(--hp-space-3);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: var(--hp-space-4);
+}
+
+.home-page .hp-metric-card {
+  padding: var(--hp-space-3);
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-md);
+  background: var(--hp-surface);
+}
+
+.home-page .hp-metric-card__value {
+  color: var(--hp-text);
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.home-page .hp-metric-card__label {
+  margin-top: var(--hp-space-1);
+  font-size: 0.86rem;
+}
+
+.home-page .hp-list-card {
+  display: grid;
+  gap: var(--hp-space-3);
+}
+
+.home-page .hp-list-card li {
+  padding: var(--hp-space-3) var(--hp-space-4);
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-md);
+  background: var(--hp-surface);
+}
+
+.home-page .hp-list-card h3 {
+  font-size: 1.02rem;
+}
+
+.home-page .hp-list-card p {
+  margin-top: var(--hp-space-1);
+  font-size: 0.95rem;
+}
+
+.home-page .hp-plain-list {
+  display: grid;
+  gap: var(--hp-space-3);
+}
+
+.home-page .hp-plain-list li {
+  padding: var(--hp-space-3) var(--hp-space-4);
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-md);
+  background: var(--hp-surface);
+}
+
+.home-page .hp-plain-list h4 {
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.home-page .hp-plain-list p {
+  margin-top: var(--hp-space-1);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 960px) {
+  .home-page .hp-highlight-grid,
+  .home-page .hp-publication-grid,
+  .home-page .hp-metric-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page .hp-publication-card {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page .hp-publication-card__media {
+    max-width: 220px;
+  }
+}

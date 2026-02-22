@@ -1,0 +1,43 @@
+<svg width="1600" height="1080" viewBox="0 0 1600 1080" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="heroTitle heroDesc">
+  <title id="heroTitle">Hero ambient illustration</title>
+  <desc id="heroDesc">Abstract gradients and flowing lines representing intelligent systems and energy networks.</desc>
+  <defs>
+    <linearGradient id="heroBg" x1="200" y1="80" x2="1320" y2="980" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EFF4FF"/>
+      <stop offset="0.48" stop-color="#F7F8FF"/>
+      <stop offset="1" stop-color="#E8F0FF"/>
+    </linearGradient>
+    <radialGradient id="heroGlowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1220 180) rotate(130) scale(660 460)">
+      <stop stop-color="#4EA1FF" stop-opacity="0.48"/>
+      <stop offset="1" stop-color="#4EA1FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="heroGlowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(480 860) rotate(-28) scale(620 380)">
+      <stop stop-color="#8EC5FF" stop-opacity="0.36"/>
+      <stop offset="1" stop-color="#8EC5FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="heroStroke" x1="230" y1="260" x2="1410" y2="810" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#87B8FF" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#3F7EEA" stop-opacity="0.22"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="1080" rx="48" fill="url(#heroBg)"/>
+  <ellipse cx="1180" cy="220" rx="460" ry="360" fill="url(#heroGlowA)"/>
+  <ellipse cx="520" cy="880" rx="400" ry="250" fill="url(#heroGlowB)"/>
+
+  <g opacity="0.72">
+    <path d="M180 760C360 640 520 590 720 610C960 634 1120 780 1430 720" stroke="url(#heroStroke)" stroke-width="2.5"/>
+    <path d="M210 660C430 560 590 520 790 560C970 595 1140 680 1390 640" stroke="url(#heroStroke)" stroke-width="2"/>
+    <path d="M240 560C430 470 610 430 810 470C980 503 1180 590 1360 560" stroke="url(#heroStroke)" stroke-width="1.8"/>
+    <path d="M270 470C470 385 650 360 860 398C1030 430 1200 500 1330 488" stroke="url(#heroStroke)" stroke-width="1.5"/>
+  </g>
+
+  <g opacity="0.8" fill="#1B2A52">
+    <circle cx="340" cy="760" r="5"/>
+    <circle cx="500" cy="700" r="4"/>
+    <circle cx="660" cy="654" r="4"/>
+    <circle cx="840" cy="670" r="5"/>
+    <circle cx="1010" cy="736" r="4"/>
+    <circle cx="1180" cy="760" r="5"/>
+  </g>
+</svg>

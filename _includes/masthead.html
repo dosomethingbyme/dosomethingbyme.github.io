@@ -1,24 +1,36 @@
-<div class="masthead">
+{% assign nav_links = site.data.navigation.main %}
+{% if page.locale == "en" and site.data.navigation.main_en %}
+  {% assign nav_links = site.data.navigation.main_en %}
+{% endif %}
+
+<div class="masthead masthead--apple">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        <button><div class="navicon"></div></button>
+      <nav id="site-nav" class="greedy-nav greedy-nav--apple">
+        <button type="button" aria-label="Toggle navigation"><div class="navicon"></div></button>
         <ul class="visible-links">
-          {% assign nav_links = site.data.navigation.main %}
-          {% if page.lang == "en" and site.data.navigation.main_en %}
-            {% assign nav_links = site.data.navigation.main_en %}
-          {% endif %}
           {% for link in nav_links %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
+            <li class="masthead__menu-item hp-nav__item">
+              <a class="hp-nav__link" href="{{ link.url | relative_url }}">{{ link.title }}</a>
+            </li>
           {% endfor %}
         </ul>
         <ul class="hidden-links hidden"></ul>
       </nav>
-      <div class="lang-switch">
-        {% if page.lang == "en" %}
-          <a href="{{ '/' | relative_url }}" target="_self">中文</a>
+
+      <div class="lang-switch hp-lang-switch">
+        {% if page.translation_url %}
+          {% if page.locale == "en" %}
+            <a href="{{ page.translation_url | relative_url }}">中文</a>
+          {% else %}
+            <a href="{{ page.translation_url | relative_url }}">English</a>
+          {% endif %}
         {% else %}
-          <a href="{{ '/en/' | relative_url }}" target="_self">English</a>
+          {% if page.locale == "en" %}
+            <a href="{{ '/' | relative_url }}">中文</a>
+          {% else %}
+            <a href="{{ '/en/' | relative_url }}">English</a>
+          {% endif %}
         {% endif %}
       </div>
     </div>

@@ -1,0 +1,141 @@
+{% assign locale = include.locale | default: page.locale | default: "zh" %}
+{% assign profile = site.data.profile[locale] %}
+
+<section id="about-me" class="hp-cv-head reveal">
+  <p class="hp-eyebrow">CURRICULUM VITAE</p>
+  <h1 class="hp-cv-head__title">{{ profile.cv.title }}</h1>
+  <p class="hp-cv-head__lead">{{ profile.cv.lead }}</p>
+  {% if locale == "en" %}
+    <a class="hp-button hp-button--link" href="{{ '/en/' | relative_url }}">{{ profile.labels.back_home }}</a>
+  {% else %}
+    <a class="hp-button hp-button--link" href="{{ '/' | relative_url }}">{{ profile.labels.back_home }}</a>
+  {% endif %}
+</section>
+
+<div class="hp-stack hp-stack--cv">
+  <section id="-xl" class="hp-section reveal">
+    <header class="hp-section__header">
+      <p class="hp-eyebrow">{{ profile.education.eyebrow }}</p>
+      <h2 class="hp-section__title">{{ profile.education.title }}</h2>
+      <p class="hp-section__lead">{{ profile.education.intro }}</p>
+    </header>
+
+    <ol class="hp-timeline">
+      {% for item in profile.education.timeline %}
+        <li class="hp-timeline__item">
+          <p class="hp-timeline__period">{{ item.period }}</p>
+          <h3 class="hp-timeline__title">{{ item.school }}</h3>
+          <p class="hp-timeline__meta">{{ item.degree }}</p>
+          <p class="hp-timeline__meta">{{ item.location }}</p>
+        </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section id="-lwzl" class="hp-section reveal">
+    <header class="hp-section__header">
+      <p class="hp-eyebrow">{{ profile.publications.eyebrow }}</p>
+      <h2 class="hp-section__title">{{ profile.publications.title }}</h2>
+      <p class="hp-section__lead">{{ profile.publications.intro }}</p>
+    </header>
+
+    <div class="hp-subsection">
+      <h3 class="hp-subsection__title">{{ profile.labels.featured }}</h3>
+      <div class="hp-publication-grid">
+        {% for pub in profile.publications.featured %}
+          <article class="hp-publication-card">
+            {% if pub.image != "" %}
+              <figure class="hp-publication-card__media">
+                <img src="{{ pub.image | relative_url }}" alt="{{ pub.alt }}" loading="lazy" decoding="async">
+              </figure>
+            {% endif %}
+            <div class="hp-publication-card__body">
+              <h4>{{ pub.title }}</h4>
+              <p class="hp-publication-card__authors">{{ pub.authors }}</p>
+              <p class="hp-publication-card__meta">{{ pub.venue }}, {{ pub.year }}{% if pub.status != "" %} · {{ pub.status }}{% endif %}</p>
+              {% if pub.doi != "" %}
+                <a class="hp-text-link" href="{{ pub.doi }}">{{ profile.labels.publication_link }}</a>
+              {% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="hp-subsection">
+      <h3 class="hp-subsection__title">{{ profile.labels.full_list }}</h3>
+      <ul class="hp-plain-list">
+        {% for pub in profile.publications.full_list %}
+          <li>
+            <h4>{{ pub.title }}</h4>
+            <p>{{ pub.authors }}</p>
+            <p>{{ pub.venue }}, {{ pub.year }}{% if pub.status != "" %} · {{ pub.status }}{% endif %}</p>
+            {% if pub.doi != "" %}
+              <a class="hp-text-link" href="{{ pub.doi }}">{{ profile.labels.publication_link }}</a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="hp-subsection">
+      <h3 class="hp-subsection__title">{{ profile.labels.collaborations }}</h3>
+      <ul class="hp-plain-list">
+        {% for pub in profile.publications.collaborations %}
+          <li>
+            <h4>{{ pub.title }}</h4>
+            <p>{{ pub.authors }}</p>
+            <p>{{ pub.venue }}{% if pub.year != "" %}, {{ pub.year }}{% endif %}{% if pub.status != "" %} · {{ pub.status }}{% endif %}</p>
+            {% if pub.doi != "" %}
+              <a class="hp-text-link" href="{{ pub.doi }}">{{ profile.labels.publication_link }}</a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+
+  <section id="-ryjx" class="hp-section reveal">
+    <header class="hp-section__header">
+      <p class="hp-eyebrow">{{ profile.honors.eyebrow }}</p>
+      <h2 class="hp-section__title">{{ profile.honors.title }}</h2>
+      <p class="hp-section__lead">{{ profile.honors.intro }}</p>
+    </header>
+
+    <div class="hp-metric-grid">
+      {% for metric in profile.honors.metrics %}
+        <article class="hp-metric-card">
+          <p class="hp-metric-card__value">{{ metric.value }}</p>
+          <p class="hp-metric-card__label">{{ metric.label }}</p>
+        </article>
+      {% endfor %}
+    </div>
+
+    <ul class="hp-list-card">
+      {% for item in profile.honors.list %}
+        <li>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.meta }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section id="-gzsx" class="hp-section reveal">
+    <header class="hp-section__header">
+      <p class="hp-eyebrow">{{ profile.experience.eyebrow }}</p>
+      <h2 class="hp-section__title">{{ profile.experience.title }}</h2>
+      <p class="hp-section__lead">{{ profile.experience.intro }}</p>
+    </header>
+
+    <ul class="hp-list-card">
+      {% for item in profile.experience.items %}
+        <li>
+          <h3>{{ item.org }}</h3>
+          <p>{{ item.role }}</p>
+          <p>{{ item.period }} · {{ item.location }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>

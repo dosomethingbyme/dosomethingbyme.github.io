@@ -1,0 +1,30 @@
+<svg width="1600" height="680" viewBox="0 0 1600 680" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="honorsTitle honorsDesc">
+  <title id="honorsTitle">Honors ambient illustration</title>
+  <desc id="honorsDesc">Abstract halo and stars representing recognition and awards.</desc>
+  <defs>
+    <linearGradient id="honorsBg" x1="240" y1="40" x2="1340" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF8ED"/>
+      <stop offset="1" stop-color="#F9EFE0"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(800 330) rotate(90) scale(260)">
+      <stop stop-color="#F6B44D" stop-opacity="0.52"/>
+      <stop offset="1" stop-color="#F6B44D" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="680" rx="36" fill="url(#honorsBg)"/>
+  <circle cx="800" cy="330" r="260" fill="url(#halo)"/>
+
+  <g stroke="#D3AE6C" stroke-width="2" opacity="0.55">
+    <circle cx="800" cy="330" r="200"/>
+    <circle cx="800" cy="330" r="140"/>
+  </g>
+
+  <g fill="#B3822C">
+    <path d="M800 180L826 252H902L840 298L862 368L800 326L738 368L760 298L698 252H774L800 180Z"/>
+    <circle cx="1020" cy="230" r="9"/>
+    <circle cx="610" cy="260" r="7"/>
+    <circle cx="1130" cy="390" r="6"/>
+    <circle cx="520" cy="390" r="8"/>
+  </g>
+</svg>

@@ -1,0 +1,93 @@
+.home-page .hp-hero {
+  margin-top: var(--hp-space-7);
+  margin-bottom: var(--hp-space-8);
+  padding: clamp(26px, 4.5vw, 52px);
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-lg);
+  background: linear-gradient(140deg, var(--hp-surface) 0%, var(--hp-surface-elevated) 58%, rgba(0, 113, 227, 0.07) 100%);
+  box-shadow: var(--hp-shadow-soft);
+  display: grid;
+  grid-template-columns: minmax(0, 1.03fr) minmax(0, 0.97fr);
+  gap: var(--hp-space-5);
+  align-items: center;
+}
+
+.home-page .hp-hero__title {
+  font-size: clamp(2.35rem, 5.9vw, 5rem);
+  line-height: 0.96;
+  margin-bottom: var(--hp-space-3);
+  max-width: 10em;
+}
+
+.home-page .hp-hero__lead {
+  max-width: 52ch;
+  font-size: clamp(1rem, 1.45vw, 1.2rem);
+}
+
+.home-page .hp-chip-row {
+  margin-top: var(--hp-space-4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--hp-space-2);
+}
+
+.home-page .hp-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--hp-border);
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--hp-muted);
+  font-size: 0.83rem;
+  font-weight: 500;
+}
+
+.home-page .hp-button-row {
+  margin-top: var(--hp-space-5);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--hp-space-2);
+}
+
+.home-page .hp-button-row--inline {
+  margin-top: var(--hp-space-4);
+}
+
+.home-page .hp-hero__art {
+  margin: 0;
+  border-radius: calc(var(--hp-radius-lg) - 4px);
+  overflow: hidden;
+  border: 1px solid var(--hp-border);
+  background: var(--hp-surface);
+}
+
+.home-page .hp-hero__art img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1100px) {
+  .home-page .hp-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page .hp-hero__title {
+    max-width: 14em;
+  }
+}
+
+@media (max-width: 960px) {
+  .home-page .hp-hero {
+    margin-top: var(--hp-space-6);
+    margin-bottom: var(--hp-space-6);
+    padding: var(--hp-space-4);
+  }
+
+  .home-page .hp-button-row {
+    margin-top: var(--hp-space-4);
+  }
+}

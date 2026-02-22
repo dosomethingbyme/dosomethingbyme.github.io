@@ -1,0 +1,50 @@
+.home-page .reveal {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.home-page .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.no-js .home-page .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.home-page a,
+.home-page button,
+.home-page .hp-button,
+.home-page .hp-nav__link,
+.home-page .hp-lang-switch a,
+.home-page .hp-section,
+.home-page .hp-highlight-card,
+.home-page .hp-publication-card,
+.home-page .hp-timeline__item,
+.home-page .hp-list-card li,
+.home-page .hp-plain-list li {
+  transition:
+    color var(--hp-motion-duration) var(--hp-motion-ease),
+    background-color var(--hp-motion-duration) var(--hp-motion-ease),
+    border-color var(--hp-motion-duration) var(--hp-motion-ease),
+    opacity var(--hp-motion-duration) var(--hp-motion-ease),
+    transform var(--hp-motion-duration) var(--hp-motion-ease),
+    box-shadow var(--hp-motion-duration) var(--hp-motion-ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .home-page *,
+  .home-page *::before,
+  .home-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

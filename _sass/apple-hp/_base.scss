@@ -1,0 +1,94 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body.home-page {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--hp-font-sans);
+  color: var(--hp-text);
+  background: var(--hp-bg);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.home-page #main {
+  animation: none;
+}
+
+.home-page h1,
+.home-page h2,
+.home-page h3,
+.home-page h4,
+.home-page h5,
+.home-page h6 {
+  margin: 0;
+  font-family: var(--hp-font-sans);
+  color: var(--hp-text);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.home-page p {
+  margin: 0;
+  color: var(--hp-muted);
+}
+
+.home-page a {
+  color: var(--hp-accent);
+  text-decoration: none;
+}
+
+.home-page a:hover,
+.home-page a:focus-visible {
+  text-decoration: none;
+}
+
+.home-page ul,
+.home-page ol {
+  margin: 0;
+  padding: 0;
+}
+
+.home-page li {
+  list-style: none;
+}
+
+.home-page .page,
+.home-page .page__inner-wrap,
+.home-page .page__content,
+.home-page .page__meta,
+.home-page .page__share {
+  float: none;
+  width: 100%;
+  margin: 0;
+}
+
+.home-page .page__content {
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.home-page .sidebar,
+.home-page .author__content,
+.home-page .author__urls-wrapper {
+  display: none;
+}
+
+.home-page #about-me,
+.home-page #-xl,
+.home-page #-lwzl,
+.home-page #-ryjx,
+.home-page #-gzsx {
+  scroll-margin-top: calc(var(--hp-nav-height) + var(--hp-space-4));
+}
+
+.home-page ::selection,
+.home-page ::-moz-selection {
+  background: rgba(0, 113, 227, 0.2);
+  color: var(--hp-text);
+}

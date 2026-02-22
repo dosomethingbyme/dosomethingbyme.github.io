@@ -1,45 +1,27 @@
 ---
 layout: compress
 ---
-
 <!doctype html>
-<html lang="{{ site.lang | default: 'en' }}" class="no-js">
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}" class="no-js">
   <head>
     {% include head.html %}
     {% include head/custom.html %}
   </head>
-
-  <body>
-
+  <body class="home-page{% if page.locale == 'en' %} home-page--en{% else %} home-page--zh{% endif %}{% if page.page_variant %} home-page--{{ page.page_variant }}{% endif %}">
     {% include browser-upgrade.html %}
     {% include masthead.html %}
 
-    <div id="main" role="main">
-      {% include sidebar.html %}
-    
-      <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-        {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-        <div class="page__inner-wrap">
-          <section class="page__content" itemprop="text">
-            {{ content }}
-          </section>
-        </div>
-      </article>
-    </div>
+    <main id="main" class="home-main" role="main">
+      <div class="home-container">
+        {{ content }}
+      </div>
+    </main>
+
+    <footer class="footer_site">
+      <hr>
+      <div class="footer_copyright">&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}</div>
+    </footer>
 
     {% include scripts.html %}
-
-<div class="footer_site">
-<hr/>
-<div class="footer_copyright">
-  © 2025 杨烨
-</div>
-<!-- <div class="footer_copyright">
-  © 2025 杨烨 | 基于&nbsp
-  <a class="page_a"  href="https://github.com/RayeRen/acad-homepage.github.io">
-  acad
-  </a>&nbsp模板
-</div> -->
-</div>
   </body>
 </html>

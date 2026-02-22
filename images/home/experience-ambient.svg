@@ -1,0 +1,30 @@
+<svg width="1600" height="680" viewBox="0 0 1600 680" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="expTitle expDesc">
+  <title id="expTitle">Experience ambient illustration</title>
+  <desc id="expDesc">Abstract network paths symbolizing execution and collaboration.</desc>
+  <defs>
+    <linearGradient id="expBg" x1="160" y1="80" x2="1440" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEF7F5"/>
+      <stop offset="1" stop-color="#E5F0ED"/>
+    </linearGradient>
+    <linearGradient id="expStroke" x1="180" y1="560" x2="1420" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2A8C7B" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#3FAF99" stop-opacity="0.52"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="680" rx="36" fill="url(#expBg)"/>
+
+  <g opacity="0.8" stroke="url(#expStroke)" stroke-width="3">
+    <path d="M180 560C380 510 530 360 760 350C940 342 1090 430 1410 230"/>
+    <path d="M200 430C420 430 620 260 820 260C1000 260 1180 340 1380 170"/>
+    <path d="M220 610C430 560 620 470 830 500C1060 536 1210 520 1410 420"/>
+  </g>
+
+  <g fill="#2B7D70">
+    <circle cx="280" cy="536" r="8"/>
+    <circle cx="532" cy="389" r="7"/>
+    <circle cx="760" cy="350" r="8"/>
+    <circle cx="1018" cy="376" r="7"/>
+    <circle cx="1338" cy="279" r="8"/>
+  </g>
+</svg>

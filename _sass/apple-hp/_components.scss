@@ -1,0 +1,78 @@
+.home-page .hp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0.52rem 1rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.home-page .hp-button--primary {
+  background: #1d1d1f;
+  color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+.home-page .hp-button--primary:hover,
+.home-page .hp-button--primary:focus-visible {
+  background: #2d2d30;
+  color: #ffffff;
+}
+
+.home-page .hp-button--secondary {
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--hp-text);
+  border-color: var(--hp-border);
+}
+
+.home-page .hp-button--secondary:hover,
+.home-page .hp-button--secondary:focus-visible {
+  background: rgba(0, 113, 227, 0.1);
+  color: var(--hp-accent);
+}
+
+.home-page .hp-button--link {
+  background: transparent;
+  color: var(--hp-accent);
+  border-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.home-page .hp-button--link:hover,
+.home-page .hp-button--link:focus-visible {
+  color: #0062c3;
+}
+
+.home-page .hp-text-link {
+  display: inline-flex;
+  margin-top: var(--hp-space-2);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--hp-accent);
+}
+
+.home-page .hp-text-link:hover,
+.home-page .hp-text-link:focus-visible {
+  color: #0062c3;
+}
+
+.home-page .back-to-top {
+  border: 1px solid var(--hp-border);
+  border-radius: 999px;
+  box-shadow: none;
+  background: #1d1d1f;
+  color: #ffffff;
+}
+
+.home-page .back-to-top:hover,
+.home-page .back-to-top:focus-visible {
+  background: #2d2d30;
+  color: #ffffff;
+  transform: none;
+  box-shadow: none;
+}

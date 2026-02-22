@@ -1,0 +1,105 @@
+.home-page .masthead {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  border-bottom: 1px solid var(--hp-border);
+  background: rgba(245, 245, 247, 0.82);
+  backdrop-filter: saturate(160%) blur(16px);
+  box-shadow: none;
+}
+
+.home-page .masthead__inner-wrap {
+  max-width: var(--hp-max-width);
+  min-height: var(--hp-nav-height);
+  margin: 0 auto;
+  padding: 0 var(--hp-space-4);
+  display: flex;
+  align-items: center;
+}
+
+.home-page .masthead__menu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--hp-space-2);
+}
+
+.home-page .greedy-nav {
+  min-width: 0;
+  background: transparent;
+}
+
+.home-page .greedy-nav .visible-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.home-page .greedy-nav .visible-links li {
+  margin: 0;
+}
+
+.home-page .hp-nav__link,
+.home-page .hp-lang-switch a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0.4rem 0.74rem;
+  border-radius: 999px;
+  color: var(--hp-text);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.home-page .hp-nav__link:hover,
+.home-page .hp-nav__link:focus-visible,
+.home-page .hp-nav__link.is-active,
+.home-page .hp-lang-switch a:hover,
+.home-page .hp-lang-switch a:focus-visible {
+  color: var(--hp-accent);
+  background: rgba(0, 113, 227, 0.12);
+}
+
+.home-page .greedy-nav button {
+  height: 36px;
+  padding: 0 0.5rem;
+  color: var(--hp-muted);
+  background: transparent;
+}
+
+.home-page .greedy-nav .hidden-links {
+  right: 0;
+  left: auto;
+  border: 1px solid var(--hp-border);
+  border-radius: var(--hp-radius-md);
+  background: var(--hp-surface);
+  box-shadow: var(--hp-shadow-soft);
+}
+
+.home-page .greedy-nav .hidden-links a {
+  color: var(--hp-text);
+  padding: 0.5rem 0.7rem;
+}
+
+.home-page .greedy-nav .hidden-links a:hover,
+.home-page .greedy-nav .hidden-links a:focus-visible {
+  color: var(--hp-accent);
+  background: rgba(0, 113, 227, 0.1);
+}
+
+.home-page .hp-lang-switch {
+  flex-shrink: 0;
+}
+
+@media (max-width: 960px) {
+  .home-page .masthead__inner-wrap {
+    padding: 0 var(--hp-space-3);
+  }
+
+  .home-page .hp-nav__link,
+  .home-page .hp-lang-switch a {
+    font-size: 0.88rem;
+  }
+}

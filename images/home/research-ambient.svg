@@ -1,0 +1,40 @@
+<svg width="1600" height="680" viewBox="0 0 1600 680" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="researchTitle researchDesc">
+  <title id="researchTitle">Research ambient illustration</title>
+  <desc id="researchDesc">Abstract beams and matrix nodes representing computational research.</desc>
+  <defs>
+    <linearGradient id="researchBg" x1="160" y1="40" x2="1500" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0E1A3A"/>
+      <stop offset="1" stop-color="#1F3A72"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="220" y1="560" x2="1360" y2="160" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67B2FF" stop-opacity="0.12"/>
+      <stop offset="0.52" stop-color="#9DD0FF" stop-opacity="0.58"/>
+      <stop offset="1" stop-color="#C6E4FF" stop-opacity="0.16"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="680" rx="36" fill="url(#researchBg)"/>
+
+  <path d="M120 620L820 160L1480 120" stroke="url(#beam)" stroke-width="52" stroke-linecap="round"/>
+
+  <g opacity="0.45" stroke="#5DA4ED" stroke-width="1">
+    <path d="M0 100H1600"/>
+    <path d="M0 220H1600"/>
+    <path d="M0 340H1600"/>
+    <path d="M0 460H1600"/>
+    <path d="M0 580H1600"/>
+    <path d="M180 0V680"/>
+    <path d="M420 0V680"/>
+    <path d="M660 0V680"/>
+    <path d="M900 0V680"/>
+    <path d="M1140 0V680"/>
+    <path d="M1380 0V680"/>
+  </g>
+
+  <g fill="#B5DCFF">
+    <circle cx="360" cy="470" r="6"/>
+    <circle cx="640" cy="312" r="6"/>
+    <circle cx="920" cy="232" r="6"/>
+    <circle cx="1220" cy="188" r="6"/>
+  </g>
+</svg>

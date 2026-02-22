@@ -1,0 +1,36 @@
+<svg width="1600" height="680" viewBox="0 0 1600 680" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="eduTitle eduDesc">
+  <title id="eduTitle">Education ambient illustration</title>
+  <desc id="eduDesc">Layered abstract blocks and lines representing academic growth.</desc>
+  <defs>
+    <linearGradient id="eduBg" x1="180" y1="80" x2="1470" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7F8FB"/>
+      <stop offset="1" stop-color="#EDEFF8"/>
+    </linearGradient>
+    <linearGradient id="eduCardA" x1="200" y1="120" x2="760" y2="460" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E0EBFF"/>
+      <stop offset="1" stop-color="#F7F9FF"/>
+    </linearGradient>
+    <linearGradient id="eduCardB" x1="780" y1="180" x2="1400" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E7F2FF"/>
+      <stop offset="1" stop-color="#F8FAFF"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="680" rx="36" fill="url(#eduBg)"/>
+  <rect x="120" y="120" width="610" height="420" rx="30" fill="url(#eduCardA)" stroke="#CCD9F0"/>
+  <rect x="790" y="170" width="700" height="360" rx="30" fill="url(#eduCardB)" stroke="#D5E2F5"/>
+
+  <g opacity="0.8" stroke="#8EA7D8" stroke-width="2">
+    <path d="M230 290H620"/>
+    <path d="M230 340H560"/>
+    <path d="M230 390H490"/>
+    <path d="M900 270H1370"/>
+    <path d="M900 320H1290"/>
+    <path d="M900 370H1240"/>
+  </g>
+
+  <g fill="#5A6A8F">
+    <circle cx="230" cy="235" r="8"/>
+    <circle cx="900" cy="235" r="8"/>
+  </g>
+</svg>
