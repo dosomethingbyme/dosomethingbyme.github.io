@@ -188,18 +188,18 @@ h3 {
 }
 
 a {
-    color: #5b6fd6;
+    color: var(--accent);
     text-decoration: none;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 0.2s ease;
     position: relative;
 }
 
 a:hover {
-    color: #4a5fb8;
+    color: #006fdc; // manual darker accent to avoid Sass darken on CSS variable
     text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-thickness: 1.5px;
-    text-decoration-color: rgba(91, 111, 214, 0.4);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.2px;
+    text-decoration-color: currentColor;
 }
 
 .masthead {
@@ -217,31 +217,17 @@ a:hover {
         a {
             font-weight: 500;
             color: var(--text);
-            padding: 0.6em 1.1em;
-            border-radius: 8px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0.55em 1em;
+            border-radius: 0;
+            transition: color 0.15s ease;
             position: relative;
-
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: 2px;
-                left: 50%;
-                transform: translateX(-50%) scaleX(0);
-                width: 70%;
-                height: 2px;
-                background: linear-gradient(90deg, #5b6fd6 0%, #6b5b95 100%);
-                border-radius: 1px;
-                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            }
+            text-decoration: none;
 
             &:hover {
-                background: rgba(91, 111, 214, 0.06);
-                color: #5b6fd6;
-
-                &::after {
-                    transform: translateX(-50%) scaleX(1);
-                }
+                color: var(--accent);
+                text-decoration: underline;
+                text-underline-offset: 4px;
+                text-decoration-thickness: 1px;
             }
         }
     }
@@ -495,136 +481,87 @@ a:hover {
         }
     }
 
-    /* 优化链接样式 */
+    /* 链接样式：仅颜色/下划线变化 */
     a {
         display: inline-flex;
         align-items: center;
-        gap: 0.3em;
-        padding: 0.25em 0.55em;
-        background: rgba(91, 111, 214, 0.08);
-        border-radius: 5px;
-        font-size: 0.88em;
+        gap: 0.28em;
+        padding: 0;
+        background: transparent;
+        border-radius: 4px;
+        font-size: 0.92em;
         font-weight: 500;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid transparent;
+        transition: color 0.15s ease, text-decoration-color 0.15s ease;
+        border: 0;
 
         &:hover {
-            background: rgba(91, 111, 214, 0.12);
-            border-color: rgba(91, 111, 214, 0.2);
-            transform: translateY(-1px);
-            text-decoration: none;
-            box-shadow: 0 2px 6px rgba(91, 111, 214, 0.15);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            color: var(--accent);
         }
     }
 }
 
 .paper-box {
     background: var(--surface);
-    border: 1px solid rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--border);
     border-radius: 12px;
     padding: 1.5rem 1.8rem;
     margin: 1rem 0;
-    box-shadow:
-        0 1px 3px rgba(0, 0, 0, 0.02),
-        0 2px 6px rgba(0, 0, 0, 0.03);
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    transition: all 0.15s ease;
     position: relative;
     overflow: visible;
 
-    &::before {
-        content: '';
-        position: absolute;
-        left: -2px;
-        top: 50%;
-        transform: translateY(-50%) scaleY(0);
-        width: 4px;
-        height: 60%;
-        background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
-        border-radius: 0 2px 2px 0;
-        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        opacity: 0;
-    }
-
     &:hover {
-        box-shadow:
-            0 4px 12px rgba(0, 0, 0, 0.05),
-            0 8px 24px rgba(0, 0, 0, 0.08);
-        transform: translateY(-2px);
-        border-color: rgba(102, 126, 234, 0.1);
-
-        &::before {
-            transform: translateY(-50%) scaleY(1);
-            opacity: 1;
-        }
-
-        .paper-box-image img {
-            transform: scale(1.02);
-            box-shadow:
-                0 6px 16px rgba(0, 0, 0, 0.1),
-                0 3px 6px rgba(0, 0, 0, 0.06);
-        }
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+        border-color: var(--border);
     }
 }
 
 .paper-box-image img {
     border-radius: 10px;
-    box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.06),
-        0 1px 4px rgba(0, 0, 0, 0.04);
+    box-shadow: none;
     max-width: 180px !important;
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: all 0.15s ease;
+    border: 1px solid var(--border);
 }
 
 .badge {
-    background: linear-gradient(135deg, #5b6fd6 0%, #6b5b95 100%);
-    color: white;
+    background: #0A84FF;
+    color: #ffffff;
     border: none;
     border-radius: 6px;
-    font-weight: 600;
-    padding: 0.4rem 0.9rem;
-    font-size: 0.72em;
-    letter-spacing: 0.5px;
+    font-weight: 700;
+    padding: 0.32rem 0.7rem;
+    font-size: 0.74em;
+    letter-spacing: 0.2px;
     text-transform: uppercase;
-    box-shadow:
-        0 2px 6px rgba(91, 111, 214, 0.25),
-        0 1px 3px rgba(0, 0, 0, 0.12);
-    transition: all 0.3s ease;
-
-    &:hover {
-        transform: translateY(-1px);
-        box-shadow:
-            0 4px 12px rgba(91, 111, 214, 0.35),
-            0 2px 6px rgba(0, 0, 0, 0.15);
-    }
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    transition: background 0.15s ease, color 0.15s ease;
 }
 
 .btn, button, input[type="submit"] {
-    background: linear-gradient(135deg, #5b6fd6 0%, #4a5fb8 100%);
+    background: #0A84FF;
     color: #fff;
     border-radius: 10px;
-    border: none;
-    box-shadow:
-        0 2px 6px rgba(91, 111, 214, 0.2),
-        0 4px 12px rgba(91, 111, 214, 0.15);
+    border: 1px solid #0A84FF;
+    box-shadow: none;
     font-weight: 600;
     padding: 0.7em 1.4em;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
     cursor: pointer;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.2px;
 }
 
 .btn:hover, button:hover, input[type="submit"]:hover {
-    transform: translateY(-2px);
-    box-shadow:
-        0 4px 12px rgba(91, 111, 214, 0.25),
-        0 8px 20px rgba(91, 111, 214, 0.2);
+    background: #0c75ff;
+    border-color: #0c75ff;
 }
 
 .btn:active, button:active, input[type="submit"]:active {
     transform: translateY(0);
-    box-shadow:
-        0 2px 6px rgba(91, 111, 214, 0.2);
+    box-shadow: none;
 }
 
 /* 优化列表项和段落间距 */
@@ -906,8 +843,8 @@ h1, h2, h3 {
 
         .paper-box-text {
             a {
-                font-size: 0.86em;
-                padding: 0.22em 0.5em;
+                font-size: 0.9em;
+                padding: 0;
             }
         }
     }
