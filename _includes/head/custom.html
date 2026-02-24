@@ -9,6 +9,27 @@
 <meta name="theme-color" content="#ffffff">
 <link rel="stylesheet" href="{{ '/assets/css/academicons.css' | relative_url }}"/>
 
+<script>
+  (function() {
+    function resetInitialScroll() {
+      if (window.location.hash) return;
+      window.scrollTo(0, 0);
+    }
+
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", resetInitialScroll, { once: true });
+    } else {
+      resetInitialScroll();
+    }
+
+    window.addEventListener("pageshow", resetInitialScroll);
+  })();
+</script>
+
 <script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
