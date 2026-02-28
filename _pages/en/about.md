@@ -64,11 +64,11 @@ Research interests:
 </div>
 </div>
 
-- `Yang Ye`, Qingyu Yang, Donghe Li, et al. LLM-MAC: LLM-Driven Multi-Agent Coordination for Generalizable Home Energy Management. <em class="paper-venue">Chinese Control Conference (CCC)</em>, 2025. (accepted) [[Page]](https://doi.org/10.23919/CCC64809.2025.11179521)
+- `Yang Ye`, Qingyu Yang, Donghe Li, et al. LLM-MAC: LLM-Driven Multi-Agent Coordination for Generalizable Home Energy Management. <em class="paper-venue">Chinese Control Conference (CCC)</em>, 2025. (indexed) [[Page]](https://doi.org/10.23919/CCC64809.2025.11179521)
 
 - `Yang Ye`, Rong Hu, et al. LLM-BAS: Large Language Model-Based Battery Health-Aware Scheduling in Building Energy Systems. <em class="paper-venue">IEEE-China Conference on System Simulation Technology and its Applications (CCSSTA)</em>, 2025. (indexed) [[Page]](https://doi.org/10.1109/IEEECONF65522.2025.11137012)
 
-- `Yang Ye`, Qingyu Yang, et al. Large Language Model-Driven Rule Synthesis for Adaptive Household Energy Management. <em class="paper-venue">Cyber-Physical Energy Systems</em>, 2025. (accepted)
+- `Yang Ye`, Qingyu Yang, et al. Large Language Model-Driven Rule Synthesis for Adaptive Household Energy Management. <em class="paper-venue">Cyber-Physical Energy Systems</em>, 2026. (accepted) [[DOI]](https://doi.org/10.1016/j.cpes.2025.08.007) [[Page]](https://www.sciencedirect.com/science/article/pii/S3050744826000010)
 
 - Rong Hu, `Yang Ye` (co-corresponding), et al. Large Language Model Driven Transferable Key Information Extraction Mechanism for Nonstandardized Tables. <em class="paper-venue">Scientific Reports</em>, 2025. (indexed) [[Page]](https://dx.doi.org/10.1038/s41598-025-15627-z)
 

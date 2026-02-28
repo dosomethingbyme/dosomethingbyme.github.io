@@ -66,11 +66,11 @@ redirect_from:
 </div>
 </div>
 
-- `Ye Yang`, Qingyu Yang, Donghe Li, et al. LLM-MAC: LLM-Driven Multi-Agent Coordination for Generalizable Home Energy Management. *Chinese Control Conference (CCC)*, 2025. (EI, 已录用) [[网页]](https://doi.org/10.23919/CCC64809.2025.11179521)
+- `Ye Yang`, Qingyu Yang, Donghe Li, et al. LLM-MAC: LLM-Driven Multi-Agent Coordination for Generalizable Home Energy Management. *Chinese Control Conference (CCC)*, 2025. (EI, 已检索) [[网页]](https://doi.org/10.23919/CCC64809.2025.11179521)
 
 - `Ye Yang`, Rong Hu, et al. LLM-BAS: Large Language Model-Based Battery Health-Aware Scheduling in Building Energy Systems. *IEEE-China Conference on System Simulation Technology and its Applications (CCSSTA)*, 2025. (EI, 已检索) [[网页]](https://doi.org/10.1109/IEEECONF65522.2025.11137012) 
 
-- `Ye Yang`, Qingyu Yang, et al. Large Language Model-Driven Rule Synthesis for Adaptive Household Energy Management. *Cyber-Physical Energy Systems*, 2025. (中国卓越期刊, 已录用)  
+- `Ye Yang`, Qingyu Yang, et al. Large Language Model-Driven Rule Synthesis for Adaptive Household Energy Management. *Cyber-Physical Energy Systems*, 2026. (中国卓越期刊, 已录用) [[DOI]](https://doi.org/10.1016/j.cpes.2025.08.007) [[网页]](https://www.sciencedirect.com/science/article/pii/S3050744826000010)  
 
 - Rong Hu, `Ye Yang`（共一通讯）, et al. Large Language Model Driven Transferable Key Information Extraction Mechanism for Nonstandardized Tables. *Scientific Reports*, 2025. (SCI 三区, 已检索)  [[网页]](https://dx.doi.org/10.1038/s41598-025-15627-z) 
 
