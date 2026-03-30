@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>吃什么街机厅</title>
+    <style>
+      :root {
+        --cinnabar: #c02c38;
+        --seal-red: #9d1f2b;
+        --deep-red: #781722;
+        --silk-white: #f7f3eb;
+        --paper-shadow: #e8ded0;
+        --ink-brown: #211a18;
+        --charcoal: #3a312e;
+        --bronze: #92714a;
+        --text: #201b19;
+        --text-muted: #6e625b;
+        --line: rgba(157, 31, 43, 0.16);
+        --line-strong: rgba(157, 31, 43, 0.28);
+        --panel: rgba(247, 243, 235, 0.78);
+        --panel-strong: rgba(255, 252, 247, 0.9);
+        --glow: rgba(192, 44, 56, 0.16);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Songti SC", "STSong", "Noto Serif SC", serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 18% 14%, rgba(192, 44, 56, 0.11), transparent 22%),
+          radial-gradient(circle at 78% 18%, rgba(146, 113, 74, 0.14), transparent 26%),
+          linear-gradient(180deg, #fbf7ef 0%, var(--silk-white) 56%, #efe4d5 100%);
+        overflow-x: hidden;
+      }
+
+      body::before,
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      body::before {
+        background-image:
+          linear-gradient(rgba(157, 31, 43, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(157, 31, 43, 0.025) 1px, transparent 1px);
+        background-size: 42px 42px;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 95%);
+      }
+
+      body::after {
+        background:
+          radial-gradient(circle at center, transparent 60%, rgba(33, 26, 24, 0.06)),
+          radial-gradient(circle at 50% -10%, rgba(255, 255, 255, 0.34), transparent 26%);
+      }
+
+      body.screen-hit .playfield {
+        animation: screen-hit 220ms ease;
+      }
+
+      @keyframes screen-hit {
+        0% {
+          transform: translateX(0);
+        }
+
+        25% {
+          transform: translateX(-4px);
+        }
+
+        50% {
+          transform: translateX(3px);
+        }
+
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      button {
+        font: inherit;
+      }
+
+      .app {
+        position: relative;
+        width: min(1260px, calc(100vw - 28px));
+        margin: 0 auto;
+        padding: 20px 0 40px;
+      }
+
+      .playfield,
+      .panel,
+      .option,
+      .leader-item,
+      .history-item,
+      .food-chip,
+      .result-card,
+      .result-rank-item {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .playfield,
+      .panel {
+        border: 1px solid var(--line);
+        background: var(--panel);
+        backdrop-filter: blur(14px);
+      }
+
+      .playfield::after,
+      .panel::after,
+      .option::after,
+      .result-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.36), transparent 38%),
+          linear-gradient(220deg, rgba(157, 31, 43, 0.06), transparent 48%);
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.18fr 0.82fr;
+        gap: 20px;
+      }
+
+      .hero {
+        padding: 28px;
+        min-height: 360px;
+      }
+
+      .eyebrow,
+      .panel-kicker,
+      .tiny-label {
+        font-family: "Helvetica Neue", "PingFang SC", sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--cinnabar);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 36px;
+        height: 1px;
+        background: currentColor;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      .hero h1 {
+        margin-top: 18px;
+        font-size: clamp(3.2rem, 7vw, 6.9rem);
+        line-height: 0.92;
+        font-weight: 600;
+      }
+
+      .hero .lead {
+        max-width: 48rem;
+        margin-top: 18px;
+        color: var(--text-muted);
+        line-height: 1.9;
+        font-size: 1.04rem;
+      }
+
+      .hero .lead strong {
+        color: var(--deep-red);
+        font-weight: 600;
+      }
+
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .hero-stat {
+        padding: 14px 16px;
+        border-top: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.46);
+      }
+
+      .hero-stat small,
+      .meter-note,
+      .short-key {
+        display: block;
+        font-family: "Helvetica Neue", "PingFang SC", sans-serif;
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      .hero-stat strong {
+        display: block;
+        margin-top: 10px;
+        font-size: 1.3rem;
+        line-height: 1.1;
+      }
+
+      .food-marquee {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .marquee-pill {
+        padding: 9px 12px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.42);
+        font-size: 0.92rem;
+      }
+
+      .hud-stack {
+        display: grid;
+        gap: 20px;
+      }
+
+      .panel {
+        padding: 22px;
+      }
+
+      .hud-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .hud-card {
+        padding: 14px 16px;
+        background: rgba(255, 255, 255, 0.5);
+        border-top: 1px solid var(--line);
+      }
+
+      .hud-card strong {
+        display: block;
+        margin-top: 10px;
+        font-size: 1.7rem;
+        line-height: 1;
+      }
+
+      .timer-shell {
+        margin-top: 18px;
+      }
+
+      .timer-head,
+      .progress-head,
+      .control-row,
+      .result-headline {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .timer-head strong,
+      .progress-head strong {
+        font-size: 1.1rem;
+      }
+
+      .timer-bar,
+      .progress-bar,
+      .leader-bar {
+        position: relative;
+        overflow: hidden;
+        border-radius: 999px;
+      }
+
+      .timer-bar,
+      .progress-bar {
+        height: 12px;
+        margin-top: 10px;
+        background: linear-gradient(90deg, rgba(146, 113, 74, 0.18), rgba(192, 44, 56, 0.32));
+      }
+
+      .timer-fill,
+      .progress-fill {
+        position: absolute;
+        inset: 0 auto 0 0;
+        border-radius: inherit;
+        transition: width 120ms linear;
+      }
+
+      .timer-fill {
+        width: 100%;
+        background: linear-gradient(90deg, var(--bronze), var(--cinnabar));
+      }
+
+      .timer-shell.danger .timer-fill {
+        background: linear-gradient(90deg, var(--cinnabar), var(--deep-red));
+      }
+
+      .timer-shell.danger .timer-head strong {
+        color: var(--seal-red);
+      }
+
+      .timer-shell.danger {
+        animation: timer-pulse 700ms ease infinite;
+      }
+
+      @keyframes timer-pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.01);
+        }
+      }
+
+      .progress-fill {
+        width: 0%;
+        background: linear-gradient(90deg, var(--bronze), var(--cinnabar));
+      }
+
+      .leaning-box {
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+      }
+
+      .leaning-box strong {
+        display: block;
+        margin-top: 10px;
+        font-size: 1.3rem;
+      }
+
+      .leaning-box p {
+        margin-top: 10px;
+        color: var(--text-muted);
+        line-height: 1.8;
+      }
+
+      .control-row {
+        margin-top: 18px;
+      }
+
+      .mute-button,
+      .restart-button,
+      .jump-button {
+        padding: 11px 14px;
+        border: 1px solid var(--line);
+        background: transparent;
+        color: var(--text);
+        cursor: pointer;
+        transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+      }
+
+      .mute-button:hover,
+      .restart-button:hover,
+      .jump-button:hover {
+        transform: translateY(-1px);
+      }
+
+      .mute-button.is-on {
+        background: var(--cinnabar);
+        color: var(--silk-white);
+      }
+
+      .main-grid {
+        display: grid;
+        grid-template-columns: 1.12fr 0.88fr;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .game-panel {
+        padding: 26px;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 16px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .section-head h2 {
+        margin-top: 10px;
+        font-size: clamp(1.9rem, 3vw, 2.8rem);
+        line-height: 1.06;
+      }
+
+      .section-note {
+        max-width: 18rem;
+        color: var(--text-muted);
+        font-size: 0.94rem;
+        line-height: 1.7;
+      }
+
+      .question-shell {
+        margin-top: 24px;
+      }
+
+      .prompt-box {
+        padding: 22px;
+        min-height: 180px;
+        border: 1px solid var(--line);
+        background:
+          radial-gradient(circle at top left, rgba(255, 255, 255, 0.66), transparent 34%),
+          linear-gradient(150deg, rgba(146, 113, 74, 0.12), rgba(192, 44, 56, 0.07));
+      }
+
+      .prompt-box h3 {
+        margin-top: 14px;
+        font-size: clamp(1.55rem, 3vw, 2.4rem);
+        line-height: 1.2;
+      }
+
+      .prompt-box p {
+        margin-top: 14px;
+        max-width: 40rem;
+        color: var(--text-muted);
+        line-height: 1.9;
+      }
+
+      .options {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .option {
+        padding: 18px;
+        border: 1px solid var(--line);
+        background: var(--panel-strong);
+        text-align: left;
+        cursor: pointer;
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          background 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .option:hover,
+      .option:focus-visible {
+        transform: translateY(-2px);
+        border-color: var(--line-strong);
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 18px 30px rgba(33, 26, 24, 0.08);
+        outline: none;
+      }
+
+      .option-key {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        font-family: "Helvetica Neue", "PingFang SC", sans-serif;
+        font-size: 0.78rem;
+        color: var(--seal-red);
+      }
+
+      .option small {
+        display: block;
+        margin-top: 14px;
+        font-family: "Helvetica Neue", "PingFang SC", sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--seal-red);
+      }
+
+      .option strong {
+        display: block;
+        margin-top: 10px;
+        font-size: 1.18rem;
+        line-height: 1.35;
+      }
+
+      .option span {
+        display: block;
+        margin-top: 10px;
+        color: var(--text-muted);
+        line-height: 1.75;
+      }
+
+      .option.locked {
+        opacity: 0.6;
+        pointer-events: none;
+      }
+
+      .result-card {
+        display: none;
+        margin-top: 18px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        background:
+          radial-gradient(circle at top left, rgba(255, 255, 255, 0.68), transparent 34%),
+          linear-gradient(145deg, rgba(146, 113, 74, 0.14), rgba(192, 44, 56, 0.1));
+      }
+
+      .result-card.active {
+        display: block;
+        animation: rise 320ms ease;
+      }
+
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .result-card h3 {
+        margin-top: 14px;
+        font-size: clamp(2rem, 4vw, 3.3rem);
+        line-height: 1.02;
+      }
+
+      .result-card p {
+        margin-top: 16px;
+        color: var(--text-muted);
+        line-height: 1.9;
+      }
+
+      .result-chips,
+      .food-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .result-chips {
+        margin-top: 18px;
+      }
+
+      .result-chip,
+      .food-chip {
+        padding: 9px 12px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.5);
+        font-family: "Helvetica Neue", "PingFang SC", sans-serif;
+        font-size: 0.82rem;
+        color: var(--text-muted);
+      }
+
+      .result-rank {
+        display: grid;
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      .result-rank-item {
+        padding: 14px 16px;
+        background: rgba(255, 255, 255, 0.44);
+        border-left: 2px solid var(--cinnabar);
+      }
+
+      .result-rank-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .result-rank-top strong {
+        font-size: 1.02rem;
+      }
+
+      .result-rank-item span {
+        display: block;
+        margin-top: 8px;
+        color: var(--text-muted);
+        line-height: 1.75;
+      }
+
+      .side-stack {
+        display: grid;
+        gap: 20px;
+      }
+
+      .leader-list,
+      .history-list {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .leader-item,
+      .history-item {
+        padding: 14px 16px;
+        background: rgba(255, 255, 255, 0.46);
+        border-left: 2px solid transparent;
+      }
+
+      .leader-item.is-top {
+        border-left-color: var(--cinnabar);
+        box-shadow: inset 0 0 0 1px rgba(192, 44, 56, 0.08);
+      }
+
+      .leader-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .leader-head strong {
+        font-size: 1rem;
+      }
+
+      .leader-bar {
+        height: 8px;
+        margin-top: 10px;
+        background: rgba(146, 113, 74, 0.16);
+      }
+
+      .leader-bar-fill {
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--bronze), var(--cinnabar));
+      }
+
+      .leader-item span,
+      .history-item span,
+      .panel p,
+      .food-chip em {
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      .history-empty {
+        color: var(--text-muted);
+        line-height: 1.8;
+      }
+
+      .food-grid {
+        margin-top: 18px;
+      }
+
+      .food-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .food-chip strong {
+        color: var(--text);
+      }
+
+      .food-chip.is-hot {
+        border-color: rgba(192, 44, 56, 0.34);
+        background: rgba(192, 44, 56, 0.1);
+      }
+
+      .food-chip em {
+        font-style: normal;
+      }
+
+      .panel-foot {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+      }
+
+      .burst {
+        position: fixed;
+        z-index: 20;
+        pointer-events: none;
+        padding: 8px 12px;
+        border: 1px solid var(--line-strong);
+        background: rgba(255, 252, 247, 0.88);
+        color: var(--seal-red);
+        font-family: "Helvetica Neue", "PingFang SC", sans-serif;
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        animation: burst-float 780ms ease forwards;
+      }
+
+      @keyframes burst-float {
+        0% {
+          opacity: 0;
+          transform: translate(-50%, 8px) scale(0.94);
+        }
+
+        20% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+          transform: translate(-50%, -40px) scale(1.04);
+        }
+      }
+
+      @media (max-width: 1040px) {
+        .hero-grid,
+        .main-grid,
+        .options {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-stats,
+        .hud-row {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .section-head,
+        .timer-head,
+        .progress-head,
+        .result-headline {
+          flex-direction: column;
+          align-items: start;
+        }
+
+        .section-note {
+          max-width: none;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .app {
+          width: min(100vw - 18px, 1260px);
+          padding-top: 10px;
+        }
+
+        .hero,
+        .panel,
+        .game-panel {
+          padding: 18px;
+        }
+
+        .hero-stats,
+        .hud-row {
+          grid-template-columns: 1fr;
+        }
+
+        .control-row {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="app">
+      <section class="hero-grid">
+        <article class="playfield hero">
+          <div class="eyebrow">Arcade / Timed / Food Pool</div>
+          <h1>吃什么街机厅</h1>
+          <p class="lead">
+            现在不是两选一，而是一整池食物一起抢分。你会在
+            <strong>限时八回合</strong>里连续作答，系统根据你的速度、连击和口味方向，把分数推给
+            <strong>烤面筋、天津打卤面、沙县鸡腿饭、鸭腿饭、兰州牛肉面、酸菜馅饺子</strong>
+            以及更多候选。
+          </p>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <small>Mode</small>
+              <strong>街机判定局</strong>
+            </div>
+            <div class="hero-stat">
+              <small>Rounds</small>
+              <strong>8 回合</strong>
+            </div>
+            <div class="hero-stat">
+              <small>Per Round</small>
+              <strong>9 秒倒计时</strong>
+            </div>
+            <div class="hero-stat">
+              <small>Controls</small>
+              <strong>1 / 2 / 3 / M / R</strong>
+            </div>
+          </div>
+          <div class="food-marquee" id="foodMarquee"></div>
+        </article>
+
+        <aside class="hud-stack">
+          <section class="panel">
+            <div class="panel-kicker">Arcade HUD</div>
+            <div class="hud-row">
+              <div class="hud-card">
+                <span class="short-key">Score</span>
+                <strong id="arcadeScore">0</strong>
+              </div>
+              <div class="hud-card">
+                <span class="short-key">Combo</span>
+                <strong id="comboCount">0x</strong>
+              </div>
+              <div class="hud-card">
+                <span class="short-key">Best</span>
+                <strong id="bestCombo">0x</strong>
+              </div>
+            </div>
+
+            <div class="timer-shell" id="timerShell">
+              <div class="timer-head">
+                <span class="meter-note">Round Timer</span>
+                <strong id="timerText">9.0s</strong>
+              </div>
+              <div class="timer-bar">
+                <div class="timer-fill" id="timerFill"></div>
+              </div>
+            </div>
+
+            <div class="leaning-box">
+              <span class="short-key">Current Leaning</span>
+              <strong id="leaningTitle">等待开局</strong>
+              <p id="leaningText">按下任意选项后，食物池会开始重新排序。</p>
+            </div>
+
+            <div class="progress-head panel-foot">
+              <span class="meter-note" id="roundLabel">Round 1 / 8</span>
+              <strong id="choicesLabel">0 Choices</strong>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <div class="control-row">
+              <button class="mute-button" id="muteButton">音效关闭</button>
+              <button class="restart-button" id="restartButton">重新开局</button>
+              <button class="jump-button" id="jumpButton">跳到结果区</button>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-kicker">Rule Note</div>
+            <h2>速度也会改变结果</h2>
+            <p class="panel-foot">
+              回答越快，越容易把分数推给冲动型、街头型、快节奏食物；拖到最后才选，系统会额外偏向热乎、安稳、家常型选项。超时不会结束游戏，但会断连击并走“犹豫判定”。
+            </p>
+          </section>
+        </aside>
+      </section>
+
+      <section class="main-grid">
+        <article class="playfield game-panel">
+          <div class="section-head">
+            <div>
+              <div class="panel-kicker">Round Prompt</div>
+              <h2 id="roundTitle">第 1 回合</h2>
+            </div>
+            <p class="section-note" id="roundTheme">你会看到一题三选一。每题只有一次机会，时间走完就自动超时结算。</p>
+          </div>
+
+          <div class="question-shell">
+            <div class="prompt-box">
+              <span class="tiny-label">Scenario</span>
+              <h3 id="promptTitle">今晚这顿，你更想怎么开始？</h3>
+              <p id="promptBody">是先被香味抬起来，还是先被热度安顿住，还是想找一种便宜又稳的工作日晚饭逻辑？</p>
+            </div>
+
+            <div class="options" id="options"></div>
+
+            <div class="result-card" id="resultCard">
+              <div class="result-headline">
+                <div>
+                  <div class="panel-kicker">Final Result</div>
+                  <h3 id="resultTitle">冠军: 烤面筋</h3>
+                </div>
+                <span class="meter-note" id="resultMeta">Arcade score 0</span>
+              </div>
+              <p id="resultBody"></p>
+              <div class="result-chips" id="resultChips"></div>
+              <div class="result-rank" id="resultRank"></div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="side-stack">
+          <section class="panel">
+            <div class="panel-kicker">Live Leaderboard</div>
+            <h2>实时排行榜</h2>
+            <div class="leader-list" id="leaderList"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-kicker">Choice Trace</div>
+            <h2>本局轨迹</h2>
+            <div class="history-list" id="historyList">
+              <p class="history-empty">还没答题。第一回合落下后，这里会记录你的路线、速度和连击变化。</p>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-kicker">Food Pool</div>
+            <h2>候选池</h2>
+            <div class="food-grid" id="foodGrid"></div>
+            <div class="panel-foot">
+              <p>当前版本包含街头、面食、米饭、饺子、汤面、重口和家常线，结果不会只停在你最早指定的那两样。</p>
+            </div>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <script>
+      const ROUND_TIME = 9;
+      const ROUNDS_PER_RUN = 8;
+
+      const foods = [
+        {
+          id: "kaomianjin",
+          name: "烤面筋",
+          short: "签",
+          vibe: "炭火冲动型",
+          desc: "它在这局里吃到了最多关于街头、焦香、夜里嘴馋和立刻满足的分数。",
+          order: "适合直接补辣酱、孜然和芝麻，边走边吃最顺。",
+          tags: { street: 4, char: 4, spicy: 2, fast: 3, night: 4, share: 2, impulse: 3, cheap: 2 },
+        },
+        {
+          id: "tianjin_dalu",
+          name: "天津打卤面",
+          short: "卤",
+          vibe: "热卤安稳型",
+          desc: "这局你多次把分数送给了热度、完整一餐和家常感，所以它会越排越高。",
+          order: "适合热卤厚一点，面条拌开后慢慢吃。",
+          tags: { meal: 4, noodle: 4, comfort: 4, homestyle: 4, warm: 4, broth: 3, share: 1, slow: 2 },
+        },
+        {
+          id: "shaxian_chicken",
+          name: "沙县鸡腿饭",
+          short: "饭",
+          vibe: "工位回血型",
+          desc: "你这局对省事、稳妥、米饭和工作日晚饭逻辑给了很多票，它自然会往前。",
+          order: "适合加卤汁和配菜，目标是快、稳、别失手。",
+          tags: { meal: 4, rice: 4, fast: 2, fried: 3, comfort: 2, cheap: 3, meat: 3, workday: 4 },
+        },
+        {
+          id: "duck_leg_rice",
+          name: "鸭腿饭",
+          short: "鸭",
+          vibe: "厚味压饿型",
+          desc: "你明显需要更扎实、更带肉感的厚味主食，它比轻盈选项更对你的状态。",
+          order: "适合多要点卤汁，配米饭一口接一口。",
+          tags: { rice: 4, meal: 4, rich: 4, braise: 4, comfort: 2, meat: 4, night: 1 },
+        },
+        {
+          id: "lanzhou_beef_noodles",
+          name: "兰州牛肉面",
+          short: "兰",
+          vibe: "清汤热面型",
+          desc: "你多次偏向热汤、清口和面条线，所以它在这局里的综合分会很高。",
+          order: "适合汤热一点，先喝一口汤再下筷子。",
+          tags: { noodle: 4, broth: 4, warm: 4, clear: 3, meal: 3, workday: 2, comfort: 2 },
+        },
+        {
+          id: "pickled_dumplings",
+          name: "酸菜馅饺子",
+          short: "饺",
+          vibe: "家常酸香型",
+          desc: "你对家常、分享和一点发酸的开胃线给了足够多空间，这让它冲到了前排。",
+          order: "适合蘸一点蒜醋，越吃越开胃。",
+          tags: { dumpling: 4, sour: 4, share: 4, homestyle: 3, comfort: 3, warm: 2 },
+        },
+        {
+          id: "malatang",
+          name: "麻辣烫",
+          short: "烫",
+          vibe: "重口自定义型",
+          desc: "你选择里有不少重口、夜宵和自己掌控配料的倾向，所以它很能得分。",
+          order: "适合按辣度和配菜自己配，越杂越快乐。",
+          tags: { spicy: 4, broth: 3, custom: 4, night: 3, rich: 2, impulse: 2, share: 1 },
+        },
+        {
+          id: "jianbing_guozi",
+          name: "煎饼果子",
+          short: "饼",
+          vibe: "脆快街头型",
+          desc: "你这一局常常更偏快、脆、拿着就走的路径，煎饼果子会被快速抬高。",
+          order: "适合加薄脆，走路时吃也成立。",
+          tags: { street: 4, crispy: 4, fast: 4, breakfast: 4, cheap: 2, impulse: 2 },
+        },
+        {
+          id: "huangmenji",
+          name: "黄焖鸡米饭",
+          short: "焖",
+          vibe: "浓汁下饭型",
+          desc: "如果这局的你在找的是厚味、汁感和米饭的稳妥覆盖，它会很能打。",
+          order: "适合多汁拌饭，标准工作日回血配置。",
+          tags: { rice: 4, meal: 4, rich: 3, braise: 4, comfort: 3, workday: 3, meat: 2 },
+        },
+        {
+          id: "roujiamo",
+          name: "肉夹馍",
+          short: "馍",
+          vibe: "手持肉感型",
+          desc: "你明显给了手拿即食、肉感和快节奏不少加分，它因此比很多汤面更靠前。",
+          order: "适合热馍夹足肉，快准狠。",
+          tags: { street: 3, fast: 3, meat: 4, crispy: 2, rich: 2, impulse: 2, cheap: 1 },
+        },
+        {
+          id: "zhajiangmian",
+          name: "炸酱面",
+          short: "酱",
+          vibe: "酱香主食型",
+          desc: "当你想要的是一顿正经面食、偏厚味但不必太汤时，它会稳定上分。",
+          order: "适合酱多一点，拌得彻底一点。",
+          tags: { noodle: 4, meal: 3, rich: 3, homestyle: 2, workday: 2, comfort: 2 },
+        },
+        {
+          id: "suanlafen",
+          name: "酸辣粉",
+          short: "粉",
+          vibe: "刺激提神型",
+          desc: "这局你给了酸、辣、夜里和冲劲不少权重，它会作为高刺激项冲上来。",
+          order: "适合把酸和辣都拉高一点，先爽再说。",
+          tags: { spicy: 3, sour: 3, night: 3, fast: 2, impulse: 3, broth: 1 },
+        },
+      ];
+
+      const questionBank = [
+        {
+          theme: "先决定今晚的节奏。你是想拿着走，坐下吃，还是围着分？",
+          title: "这一顿，你更想怎么开场？",
+          body: "第一题通常最能决定食物池的方向，因为节奏会直接筛掉一批不合时宜的选项。",
+          options: [
+            {
+              label: "拿着吃，边走边吹风也没问题",
+              note: "更偏街头、快节奏和直接入口的快乐。",
+              style: "street",
+              tags: { street: 3, fast: 2, impulse: 2, night: 2 },
+            },
+            {
+              label: "坐下来狠狠干一顿热饭热面",
+              note: "更偏完整主食、热度和稳定感。",
+              style: "meal",
+              tags: { meal: 3, comfort: 2, warm: 2, workday: 1 },
+            },
+            {
+              label: "最好能分着吃，边聊边下筷子",
+              note: "你在意的是多人一起吃时的气氛和兼容性。",
+              style: "share",
+              tags: { share: 3, homestyle: 2, custom: 1, dumpling: 1 },
+            },
+          ],
+        },
+        {
+          theme: "第二类问题看第一口的力度。你要刺激、热汤，还是厚味压住饥饿？",
+          title: "第一口最好给你什么感觉？",
+          body: "有的人需要立刻被香气拽住，有的人只想先喝到热的，也有人要靠厚味先压住空腹。",
+          options: [
+            {
+              label: "焦香、辣感、最好一下子抬头",
+              note: "越直接越好，最好闻到就想咬。",
+              style: "char",
+              tags: { char: 3, spicy: 2, impulse: 1 },
+            },
+            {
+              label: "清汤热气先到，越喝越顺",
+              note: "你需要的是热度和缓慢铺开的舒服。",
+              style: "broth",
+              tags: { broth: 3, warm: 2, clear: 2 },
+            },
+            {
+              label: "咸香厚味先顶上来才算数",
+              note: "你今晚更像要一顿能压饥饿的重食。",
+              style: "rich",
+              tags: { rich: 3, braise: 2, meat: 1, rice: 1 },
+            },
+          ],
+        },
+        {
+          theme: "主食形态也会强烈分流。面、饭和手持吃法，不是一个世界。",
+          title: "你今晚更想把哪一种主食放到中心？",
+          body: "如果这个问题你答得很快，结果通常会很明确。",
+          options: [
+            {
+              label: "今天明显想吃面",
+              note: "你需要的是吸溜感、汤或酱与面条的结合。",
+              style: "noodle",
+              tags: { noodle: 3, broth: 1 },
+            },
+            {
+              label: "今天更想配米饭",
+              note: "你要的是下饭、主食稳定和更扎实的节奏。",
+              style: "rice",
+              tags: { rice: 3, meal: 1, braise: 1 },
+            },
+            {
+              label: "不想正经坐着吃，手上拿着最好",
+              note: "你更像在找一种立刻开动的街头方案。",
+              style: "handheld",
+              tags: { street: 2, fast: 3, crispy: 1, impulse: 1 },
+            },
+          ],
+        },
+        {
+          theme: "天气和身体状态会改写答案。风一凉，很多人会从冲动切回安稳。",
+          title: "如果外面有点冷，你会更想要？",
+          body: "这个选择会让汤面和厚卤面拉开距离，也会让一部分街头食物逆袭。",
+          options: [
+            {
+              label: "热汤，把胃先暖起来",
+              note: "你把温度看得很重。",
+              style: "warm",
+              tags: { warm: 3, broth: 3, comfort: 1 },
+            },
+            {
+              label: "重口，最好直接把人顶醒",
+              note: "天气再冷也压不住你对刺激味的需求。",
+              style: "spicy",
+              tags: { spicy: 2, rich: 2, char: 1 },
+            },
+            {
+              label: "无所谓温度，先快再说",
+              note: "时间比温度更重要。",
+              style: "fast",
+              tags: { fast: 3, cheap: 1, impulse: 1, workday: 1 },
+            },
+          ],
+        },
+        {
+          theme: "你愿意花多少时间，也是食物池的一次洗牌。",
+          title: "如果现在只有十来分钟，你会偏向？",
+          body: "速度感不是附加项，它就是食物筛选器本身。",
+          options: [
+            {
+              label: "十分钟内解决最好",
+              note: "你要的是快、利落、别拖。",
+              style: "speed",
+              tags: { fast: 3, workday: 2, street: 1 },
+            },
+            {
+              label: "愿意等，只要最后稳稳吃爽",
+              note: "你接受时间成本，只求结果完整。",
+              style: "steady",
+              tags: { comfort: 2, homestyle: 2, braise: 1, meal: 1 },
+            },
+            {
+              label: "最好能自己搭配内容",
+              note: "你想控制这顿饭的变量。",
+              style: "custom",
+              tags: { custom: 3, spicy: 1, broth: 1, share: 1 },
+            },
+          ],
+        },
+        {
+          theme: "有没有朋友一起吃，会把很多单兵型食物排除出去。",
+          title: "如果有人和你一起吃，你更想怎么安排？",
+          body: "是每个人各自一份，还是几样东西一起分着吃？",
+          options: [
+            {
+              label: "每人来一份，但都要像正经一餐",
+              note: "你追求的是稳定、完成度和个体满足。",
+              style: "solo-meal",
+              tags: { meal: 3, comfort: 2, rice: 1, noodle: 1 },
+            },
+            {
+              label: "最好能分着点，聊着吃",
+              note: "你更偏分享型和社交型快乐。",
+              style: "share",
+              tags: { share: 3, street: 1, dumpling: 1, custom: 1 },
+            },
+            {
+              label: "今晚就是想让肉感负责",
+              note: "这不是氛围题，是肉量题。",
+              style: "meat",
+              tags: { meat: 3, rich: 2, braise: 1, rice: 1 },
+            },
+          ],
+        },
+        {
+          theme: "有些时候你吃的是回忆而不是饥饿。",
+          title: "你今晚更想接近哪一种情绪？",
+          body: "像家里、像夜市、像工作日晚饭，这三条线拉出来的冠军完全不一样。",
+          options: [
+            {
+              label: "像家里会做的那种",
+              note: "你想要的是亲近感，而不是表演性风味。",
+              style: "home",
+              tags: { homestyle: 3, comfort: 2, dumpling: 1, warm: 1 },
+            },
+            {
+              label: "像夜市摊位上冒出来的香",
+              note: "你想要那种站着就成立的诱惑力。",
+              style: "night",
+              tags: { street: 3, char: 2, night: 2, impulse: 1 },
+            },
+            {
+              label: "像打工日常里最稳的一顿",
+              note: "你更需要可预测、性价比高的成熟方案。",
+              style: "workday",
+              tags: { workday: 3, rice: 1, noodle: 1, cheap: 1, meal: 1 },
+            },
+          ],
+        },
+        {
+          theme: "口感也可以单独决定今天吃什么。",
+          title: "你现在最想咬到的是什么质地？",
+          body: "脆、滑、厚，这三个词通常比菜名更诚实。",
+          options: [
+            {
+              label: "要脆，要边缘有劲",
+              note: "你在找咬开时的反馈感。",
+              style: "crispy",
+              tags: { crispy: 3, street: 1, fast: 1 },
+            },
+            {
+              label: "要滑，要汤汁裹住",
+              note: "你想要顺口和被热气包裹的感觉。",
+              style: "slick",
+              tags: { broth: 2, noodle: 2, warm: 1, comfort: 1 },
+            },
+            {
+              label: "要厚，要一口下去有重量",
+              note: "你更偏向压饥饿和厚味。",
+              style: "heavy",
+              tags: { rich: 3, meat: 2, rice: 1, braise: 1 },
+            },
+          ],
+        },
+        {
+          theme: "预算和心态，也会让结果突然很世俗。",
+          title: "如果这顿要在现实里马上落地，你更在意？",
+          body: "有时不是不能吃别的，是此刻最合理的那一种正在变得特别清楚。",
+          options: [
+            {
+              label: "提神，别太稳，最好立刻起效",
+              note: "你需要的是被味道拉起来。",
+              style: "up",
+              tags: { impulse: 3, spicy: 1, char: 1, night: 1 },
+            },
+            {
+              label: "安抚，最好越吃越平",
+              note: "你需要的是平复感和热乎感。",
+              style: "calm",
+              tags: { comfort: 3, warm: 1, homestyle: 1, meal: 1 },
+            },
+            {
+              label: "便宜、稳、别翻车",
+              note: "这题很现实，但很能决定冠军。",
+              style: "budget",
+              tags: { cheap: 3, fast: 1, workday: 2, meal: 1 },
+            },
+          ],
+        },
+        {
+          theme: "最后一类问题看时段。早午、下班、夜宵，对应的是三种不同名单。",
+          title: "这顿更像发生在什么时候？",
+          body: "如果你答到这里还没偏向某个阵营，最后这题通常会决定冠军。",
+          options: [
+            {
+              label: "早午之间，快狠准",
+              note: "你更偏短时段、高效率、直接开吃。",
+              style: "breakfast",
+              tags: { breakfast: 2, fast: 2, clear: 1, cheap: 1 },
+            },
+            {
+              label: "下班后，大回血",
+              note: "需要的是一顿像样的主食补偿。",
+              style: "afterwork",
+              tags: { meal: 2, rich: 2, comfort: 2, rice: 1, noodle: 1 },
+            },
+            {
+              label: "夜里嘴馋的第二餐",
+              note: "刺激和夜色会把很多东西往前推。",
+              style: "midnight",
+              tags: { night: 3, spicy: 1, street: 2, impulse: 1 },
+            },
+          ],
+        },
+      ];
+
+      const foodMarquee = document.getElementById("foodMarquee");
+      const arcadeScore = document.getElementById("arcadeScore");
+      const comboCount = document.getElementById("comboCount");
+      const bestCombo = document.getElementById("bestCombo");
+      const timerShell = document.getElementById("timerShell");
+      const timerText = document.getElementById("timerText");
+      const timerFill = document.getElementById("timerFill");
+      const leaningTitle = document.getElementById("leaningTitle");
+      const leaningText = document.getElementById("leaningText");
+      const roundLabel = document.getElementById("roundLabel");
+      const choicesLabel = document.getElementById("choicesLabel");
+      const progressFill = document.getElementById("progressFill");
+      const roundTitle = document.getElementById("roundTitle");
+      const roundTheme = document.getElementById("roundTheme");
+      const promptTitle = document.getElementById("promptTitle");
+      const promptBody = document.getElementById("promptBody");
+      const options = document.getElementById("options");
+      const leaderList = document.getElementById("leaderList");
+      const historyList = document.getElementById("historyList");
+      const foodGrid = document.getElementById("foodGrid");
+      const resultCard = document.getElementById("resultCard");
+      const resultTitle = document.getElementById("resultTitle");
+      const resultMeta = document.getElementById("resultMeta");
+      const resultBody = document.getElementById("resultBody");
+      const resultChips = document.getElementById("resultChips");
+      const resultRank = document.getElementById("resultRank");
+      const muteButton = document.getElementById("muteButton");
+      const restartButton = document.getElementById("restartButton");
+      const jumpButton = document.getElementById("jumpButton");
+      const gamePanel = document.querySelector(".game-panel");
+
+      const audio = {
+        ctx: null,
+        enabled: false,
+      };
+
+      let state = {};
+
+      function shuffle(array) {
+        const copy = [...array];
+        for (let i = copy.length - 1; i > 0; i -= 1) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [copy[i], copy[j]] = [copy[j], copy[i]];
+        }
+        return copy;
+      }
+
+      function ensureAudio() {
+        if (audio.enabled) {
+          if (audio.ctx && audio.ctx.state === "suspended") {
+            audio.ctx.resume();
+          }
+          return;
+        }
+
+        const AudioContextCtor = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextCtor) {
+          return;
+        }
+
+        audio.ctx = audio.ctx || new AudioContextCtor();
+        audio.enabled = true;
+        if (audio.ctx.state === "suspended") {
+          audio.ctx.resume();
+        }
+        renderMuteButton();
+      }
+
+      function playTone({ frequency, duration, type = "triangle", volume = 0.04, delay = 0 }) {
+        if (!audio.enabled || !audio.ctx) {
+          return;
+        }
+
+        const start = audio.ctx.currentTime + delay;
+        const osc = audio.ctx.createOscillator();
+        const gain = audio.ctx.createGain();
+
+        osc.type = type;
+        osc.frequency.setValueAtTime(frequency, start);
+        gain.gain.setValueAtTime(0.0001, start);
+        gain.gain.exponentialRampToValueAtTime(volume, start + 0.01);
+        gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+
+        osc.connect(gain);
+        gain.connect(audio.ctx.destination);
+        osc.start(start);
+        osc.stop(start + duration + 0.02);
+      }
+
+      function playSfx(kind) {
+        if (!audio.enabled) {
+          return;
+        }
+
+        if (kind === "select") {
+          playTone({ frequency: 420, duration: 0.09, type: "triangle", volume: 0.05 });
+          playTone({ frequency: 620, duration: 0.12, type: "sine", volume: 0.04, delay: 0.05 });
+        }
+
+        if (kind === "timeout") {
+          playTone({ frequency: 180, duration: 0.18, type: "sawtooth", volume: 0.05 });
+          playTone({ frequency: 130, duration: 0.22, type: "sine", volume: 0.04, delay: 0.08 });
+        }
+
+        if (kind === "tick") {
+          playTone({ frequency: 900, duration: 0.05, type: "square", volume: 0.02 });
+        }
+
+        if (kind === "result") {
+          playTone({ frequency: 392, duration: 0.14, type: "triangle", volume: 0.04 });
+          playTone({ frequency: 523, duration: 0.16, type: "triangle", volume: 0.04, delay: 0.1 });
+          playTone({ frequency: 659, duration: 0.2, type: "triangle", volume: 0.04, delay: 0.22 });
+        }
+      }
+
+      function renderMuteButton() {
+        muteButton.textContent = audio.enabled ? "音效开启" : "音效关闭";
+        muteButton.classList.toggle("is-on", audio.enabled);
+      }
+
+      function formatScore(value) {
+        return `${value}`;
+      }
+
+      function mergeTags(base, extra) {
+        const merged = { ...base };
+        Object.entries(extra).forEach(([key, value]) => {
+          merged[key] = (merged[key] || 0) + value;
+        });
+        return merged;
+      }
+
+      function buildRunQuestions() {
+        return shuffle(questionBank).slice(0, ROUNDS_PER_RUN);
+      }
+
+      function createInitialScores() {
+        return foods.reduce((acc, food) => {
+          acc[food.id] = 0;
+          return acc;
+        }, {});
+      }
+
+      function getTopFoods(limit = foods.length) {
+        return [...foods]
+          .sort((a, b) => state.foodScores[b.id] - state.foodScores[a.id])
+          .slice(0, limit);
+      }
+
+      function buildLeaningCopy() {
+        const [first, second] = getTopFoods(2);
+
+        if (!first || state.history.length === 0) {
+          return {
+            title: "等待开局",
+            text: "按下任意选项后，食物池会开始重新排序。",
+          };
+        }
+
+        const gap = state.foodScores[first.id] - state.foodScores[second.id];
+        if (gap <= 6) {
+          return {
+            title: `当前领先: ${first.name}`,
+            text: `${first.name}只比${second.name}略高，你这局仍然很容易在后面几题翻盘。`,
+          };
+        }
+
+        return {
+          title: `当前明显偏向: ${first.name}`,
+          text: `${first.name}正在凭借${first.vibe}持续拉开分差，说明你的选择已经有稳定倾向。`,
+        };
+      }
+
+      function renderHUD() {
+        arcadeScore.textContent = formatScore(state.arcadeScore);
+        comboCount.textContent = `${state.combo}x`;
+        bestCombo.textContent = `${state.bestCombo}x`;
+        roundLabel.textContent = `Round ${Math.min(state.index + 1, ROUNDS_PER_RUN)} / ${ROUNDS_PER_RUN}`;
+        choicesLabel.textContent = `${state.history.length} Choices`;
+        progressFill.style.width = `${(state.history.length / ROUNDS_PER_RUN) * 100}%`;
+
+        const leaning = buildLeaningCopy();
+        leaningTitle.textContent = leaning.title;
+        leaningText.textContent = leaning.text;
+      }
+
+      function renderFoodMarquee() {
+        foodMarquee.innerHTML = foods
+          .map((food) => `<div class="marquee-pill">${food.name}</div>`)
+          .join("");
+      }
+
+      function renderLeaderboard() {
+        const leaders = getTopFoods(5);
+        const maxScore = Math.max(1, state.foodScores[leaders[0]?.id] || 1);
+
+        leaderList.innerHTML = leaders
+          .map((food, index) => {
+            const score = state.foodScores[food.id];
+            const width = `${Math.max(12, (score / maxScore) * 100)}%`;
+
+            return `
+              <div class="leader-item ${index === 0 && score > 0 ? "is-top" : ""}">
+                <div class="leader-head">
+                  <strong>${index + 1}. ${food.name}</strong>
+                  <span>${score}</span>
+                </div>
+                <div class="leader-bar">
+                  <div class="leader-bar-fill" style="width: ${width};"></div>
+                </div>
+                <span>${food.vibe}</span>
+              </div>
+            `;
+          })
+          .join("");
+      }
+
+      function renderFoodPool() {
+        const hotSet = new Set(getTopFoods(3).map((food) => food.id));
+        foodGrid.innerHTML = foods
+          .map((food) => {
+            const score = state.foodScores[food.id];
+            return `
+              <div class="food-chip ${hotSet.has(food.id) && score > 0 ? "is-hot" : ""}">
+                <strong>${food.short}</strong>
+                <span>${food.name}</span>
+                <em>${score}</em>
+              </div>
+            `;
+          })
+          .join("");
+      }
+
+      function renderHistory() {
+        if (state.history.length === 0) {
+          historyList.innerHTML = '<p class="history-empty">还没答题。第一回合落下后，这里会记录你的路线、速度和连击变化。</p>';
+          return;
+        }
+
+        historyList.innerHTML = state.history
+          .map((item, index) => {
+            return `
+              <div class="history-item">
+                <strong>第 ${index + 1} 回合: ${item.label}</strong>
+                <span>${item.note}</span>
+              </div>
+            `;
+          })
+          .join("");
+      }
+
+      function updateTimerUI() {
+        const ratio = Math.max(0, state.timeLeft / ROUND_TIME);
+        timerText.textContent = `${state.timeLeft.toFixed(1)}s`;
+        timerFill.style.width = `${ratio * 100}%`;
+        timerShell.classList.toggle("danger", state.timeLeft <= 3 && !state.finished);
+      }
+
+      function clearTimer() {
+        if (state.timerId) {
+          clearInterval(state.timerId);
+          state.timerId = null;
+        }
+      }
+
+      function lockOptions() {
+        options.querySelectorAll(".option").forEach((button) => {
+          button.classList.add("locked");
+        });
+      }
+
+      function spawnBurst(text, x, y) {
+        const burst = document.createElement("div");
+        burst.className = "burst";
+        burst.textContent = text;
+        burst.style.left = `${x}px`;
+        burst.style.top = `${y}px`;
+        document.body.appendChild(burst);
+        setTimeout(() => burst.remove(), 780);
+      }
+
+      function flashScreen() {
+        document.body.classList.add("screen-hit");
+        setTimeout(() => {
+          document.body.classList.remove("screen-hit");
+        }, 220);
+      }
+
+      function applyFoodScores(tags) {
+        foods.forEach((food) => {
+          let delta = 0;
+          Object.entries(tags).forEach(([tag, weight]) => {
+            delta += (food.tags[tag] || 0) * weight;
+          });
+          state.foodScores[food.id] += delta;
+        });
+      }
+
+      function computeDynamicTags(timedOut) {
+        if (timedOut) {
+          return { comfort: 1, workday: 1 };
+        }
+
+        if (state.timeLeft >= ROUND_TIME * 0.6) {
+          return { impulse: 1, street: 1, fast: 1 };
+        }
+
+        if (state.timeLeft <= ROUND_TIME * 0.25) {
+          return { comfort: 1, homestyle: 1, warm: 1 };
+        }
+
+        return { meal: 1 };
+      }
+
+      function buildTimeoutChoice() {
+        return {
+          label: "超时未选",
+          note: "你犹豫到倒计时结束，这回合系统只给了安全向的慢分。",
+          style: "timeout",
+          tags: { comfort: 1, workday: 1 },
+        };
+      }
+
+      function buildHistoryNote(choice, timedOut, pointsGained) {
+        const base = timedOut
+          ? `${choice.note} 连击清零，本回合只拿到 ${pointsGained} 分。`
+          : `${choice.note} 本回合拿到 ${pointsGained} 分，当前连击 ${state.combo}x。`;
+
+        if (!timedOut && state.timeLeft >= ROUND_TIME * 0.6) {
+          return `${base} 你答得很快，系统额外把分推给了冲动型和街头型食物。`;
+        }
+
+        if (!timedOut && state.timeLeft <= ROUND_TIME * 0.25) {
+          return `${base} 你压线作答，系统额外抬高了热乎和家常型候选。`;
+        }
+
+        return base;
+      }
+
+      function applyChoice(choice, event, timedOut = false) {
+        if (state.locked || state.finished) {
+          return;
+        }
+
+        if (!timedOut) {
+          ensureAudio();
+        }
+
+        state.locked = true;
+        clearTimer();
+        lockOptions();
+
+        const dynamicTags = computeDynamicTags(timedOut);
+        const mergedTags = mergeTags(choice.tags, dynamicTags);
+        const speedBonus = timedOut ? 0 : Math.round(state.timeLeft * 45);
+        const comboBonus = timedOut ? 0 : state.combo * 60;
+        const basePoints = timedOut ? 40 : 120;
+        const pointsGained = basePoints + speedBonus + comboBonus;
+
+        state.arcadeScore += pointsGained;
+        state.combo = timedOut ? 0 : state.combo + 1;
+        state.bestCombo = Math.max(state.bestCombo, state.combo);
+        if (timedOut) {
+          state.timeouts += 1;
+        }
+
+        applyFoodScores(mergedTags);
+
+        const historyEntry = {
+          label: choice.label,
+          note: buildHistoryNote(choice, timedOut, pointsGained),
+        };
+
+        state.history.push(historyEntry);
+        state.index += 1;
+
+        renderHUD();
+        renderLeaderboard();
+        renderFoodPool();
+        renderHistory();
+
+        playSfx(timedOut ? "timeout" : "select");
+        flashScreen();
+
+        if (!timedOut) {
+          const x = event?.clientX || window.innerWidth / 2;
+          const y = event?.clientY || window.innerHeight / 2;
+          spawnBurst(`+${pointsGained}`, x, y);
+        } else {
+          spawnBurst("timeout", window.innerWidth / 2, window.innerHeight / 2);
+        }
+
+        setTimeout(() => {
+          renderQuestion();
+        }, 220);
+      }
+
+      function startTimer() {
+        clearTimer();
+        state.timeLeft = ROUND_TIME;
+        state.lastTick = Math.ceil(ROUND_TIME);
+        updateTimerUI();
+
+        state.roundStartedAt = performance.now();
+        state.timerId = setInterval(() => {
+          const elapsed = (performance.now() - state.roundStartedAt) / 1000;
+          state.timeLeft = Math.max(0, ROUND_TIME - elapsed);
+          updateTimerUI();
+
+          const currentTick = Math.ceil(state.timeLeft);
+          if (currentTick !== state.lastTick && currentTick > 0 && currentTick <= 3) {
+            playSfx("tick");
+          }
+          state.lastTick = currentTick;
+
+          if (state.timeLeft <= 0) {
+            clearTimer();
+            applyChoice(buildTimeoutChoice(), null, true);
+          }
+        }, 100);
+      }
+
+      function renderQuestion() {
+        if (state.index >= state.questions.length) {
+          state.finished = true;
+          clearTimer();
+          showResult();
+          return;
+        }
+
+        resultCard.classList.remove("active");
+        state.locked = false;
+
+        const round = state.questions[state.index];
+        roundTitle.textContent = `第 ${state.index + 1} 回合`;
+        roundTheme.textContent = round.theme;
+        promptTitle.textContent = round.title;
+        promptBody.textContent = round.body;
+
+        options.innerHTML = round.options
+          .map((option, idx) => {
+            return `
+              <button class="option" data-option-index="${idx}">
+                <div class="option-key">${idx + 1}</div>
+                <small>${option.style}</small>
+                <strong>${option.label}</strong>
+                <span>${option.note}</span>
+              </button>
+            `;
+          })
+          .join("");
+
+        options.querySelectorAll(".option").forEach((button) => {
+          button.addEventListener("click", (event) => {
+            const index = Number(button.dataset.optionIndex);
+            applyChoice(round.options[index], event, false);
+          });
+        });
+
+        startTimer();
+      }
+
+      function showResult() {
+        clearTimer();
+        const ranking = getTopFoods();
+        const champion = ranking[0];
+        const runnerUp = ranking[1];
+        const tags = [champion.vibe, champion.order, `超时 ${state.timeouts} 次`, `最佳连击 ${state.bestCombo}x`];
+        const closeGame = runnerUp && state.foodScores[champion.id] - state.foodScores[runnerUp.id] <= 8;
+
+        roundTitle.textContent = "本局结算";
+        roundTheme.textContent = "八回合完成，下面是按你本局节奏和口味偏向生成的冠军与排行榜。";
+        promptTitle.textContent = "街机判定已完成";
+        promptBody.textContent = "如果你想试不同路线，直接重开就会重新抽题并重新排序整个食物池。";
+        options.innerHTML = "";
+
+        resultTitle.textContent = `冠军: ${champion.name}`;
+        resultMeta.textContent = `Arcade score ${state.arcadeScore}`;
+        resultBody.textContent = `${champion.desc} ${champion.order} ${
+          runnerUp
+            ? closeGame
+              ? `亚军是${runnerUp.name}，而且差距很小，说明你其实还有一部分食欲留在 ${runnerUp.vibe}。`
+              : `亚军是${runnerUp.name}，但这局冠军已经很明确。`
+            : ""
+        }`;
+
+        resultChips.innerHTML = tags.map((tag) => `<div class="result-chip">${tag}</div>`).join("");
+        resultRank.innerHTML = ranking.slice(0, 5).map((food, index) => {
+          return `
+            <div class="result-rank-item">
+              <div class="result-rank-top">
+                <strong>${index + 1}. ${food.name}</strong>
+                <span>${state.foodScores[food.id]}</span>
+              </div>
+              <span>${food.vibe}。${food.order}</span>
+            </div>
+          `;
+        }).join("");
+
+        resultCard.classList.add("active");
+        resultCard.scrollIntoView({ behavior: "smooth", block: "start" });
+        playSfx("result");
+      }
+
+      function resetState() {
+        clearTimer();
+        state = {
+          questions: buildRunQuestions(),
+          index: 0,
+          combo: 0,
+          bestCombo: 0,
+          arcadeScore: 0,
+          finished: false,
+          foodScores: createInitialScores(),
+          history: [],
+          timeLeft: ROUND_TIME,
+          timeouts: 0,
+          timerId: null,
+          roundStartedAt: 0,
+          lastTick: Math.ceil(ROUND_TIME),
+          locked: false,
+        };
+      }
+
+      function restartGame() {
+        resetState();
+        resultCard.classList.remove("active");
+        renderHUD();
+        renderLeaderboard();
+        renderFoodPool();
+        renderHistory();
+        renderQuestion();
+      }
+
+      document.addEventListener("keydown", (event) => {
+        const key = event.key.toLowerCase();
+
+        if (key === "m") {
+          audio.enabled = !audio.enabled;
+          if (audio.enabled) {
+            ensureAudio();
+          }
+          renderMuteButton();
+          return;
+        }
+
+        if (key === "r") {
+          restartGame();
+          return;
+        }
+
+        if (state.finished || state.locked) {
+          return;
+        }
+
+        if (["1", "2", "3"].includes(key)) {
+          const index = Number(key) - 1;
+          const round = state.questions[state.index];
+          if (!round || !round.options[index]) {
+            return;
+          }
+          const button = options.querySelector(`[data-option-index="${index}"]`);
+          applyChoice(round.options[index], button ? { clientX: window.innerWidth / 2, clientY: window.innerHeight / 2 } : null, false);
+        }
+      });
+
+      muteButton.addEventListener("click", () => {
+        if (!audio.enabled) {
+          ensureAudio();
+        } else {
+          audio.enabled = false;
+        }
+        renderMuteButton();
+      });
+
+      restartButton.addEventListener("click", restartGame);
+
+      jumpButton.addEventListener("click", () => {
+        resultCard.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      renderFoodMarquee();
+      renderMuteButton();
+      restartGame();
+    </script>
+  </body>
+</html>
