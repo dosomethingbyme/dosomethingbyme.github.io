@@ -254,6 +254,9 @@
       .match-view,
       .result-view {
         width: 100%;
+      }
+
+      .result-view {
         animation: arrive 420ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
       }
 
@@ -862,7 +865,7 @@
 
       .choice-row {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         gap: 8px;
       }
 
@@ -1333,7 +1336,6 @@
           <div class="choice-row">
             <label><input type="radio" name="spice" value="mild" checked />不要太辣</label>
             <label><input type="radio" name="spice" value="any" />都可以</label>
-            <label><input type="radio" name="spice" value="comfort" />想吃热乎</label>
           </div>
         </fieldset>
 
@@ -1436,7 +1438,7 @@
           return {
             budget: Number(stored.budget) || DEFAULT_PREFERENCES.budget,
             time: Number(stored.time) || DEFAULT_PREFERENCES.time,
-            spice: ["mild", "any", "comfort"].includes(stored.spice)
+            spice: ["mild", "any"].includes(stored.spice)
               ? stored.spice
               : DEFAULT_PREFERENCES.spice
           };
@@ -1463,8 +1465,7 @@
           const withinBudget = food.price <= preferences.budget;
           const withinTime = food.minutes <= preferences.time;
           const spiceOkay = preferences.spice === "any" || food.spice <= 1;
-          const comfortOkay = preferences.spice !== "comfort" || food.minutes <= preferences.time;
-          return withinBudget && withinTime && spiceOkay && comfortOkay;
+          return withinBudget && withinTime && spiceOkay;
         });
       }
 
@@ -1595,8 +1596,7 @@
       function renderConstraints() {
         const budgetText = preferences.budget === 45 ? "不太计较" : "¥" + preferences.budget + "以内";
         const timeText = preferences.time + " 分钟内";
-        const spiceText =
-          preferences.spice === "any" ? "都可以" : preferences.spice === "comfort" ? "想吃热乎" : "不要太辣";
+        const spiceText = preferences.spice === "any" ? "都可以" : "不要太辣";
 
         return (
           '<div class="constraints-bar" aria-label="当前午饭条件">' +
